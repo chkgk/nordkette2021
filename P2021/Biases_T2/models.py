@@ -53,7 +53,7 @@ class Group(BaseGroup):
 # ******************************************************************************************************************** #
 class Player(BasePlayer):
     decoy_t2 = models.StringField()
-    anchoring_t2_wtp = models.IntegerField()
+    anchoring_t2_wtp = models.FloatField()
     anchoring_t2_buy = models.IntegerField()
     framing_t2 = models.StringField()
     mental_accounting_t2 = models.IntegerField()

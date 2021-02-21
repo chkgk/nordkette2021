@@ -53,7 +53,7 @@ class Group(BaseGroup):
 class Player(BasePlayer):
     task_sequence = models.StringField()
     decoy_t1 = models.StringField()
-    anchoring_t1_wtp = models.IntegerField()
+    anchoring_t1_wtp = models.FloatField()
     framing_t1 = models.StringField()
     mental_accounting_t1 = models.IntegerField()
     conjunction_fallacy = models.IntegerField()
