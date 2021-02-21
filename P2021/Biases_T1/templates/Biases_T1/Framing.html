@@ -1,0 +1,96 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{# ****************************************************************************************************************** #}
+{# *** STYLES *** #}
+{# ****************************************************************************************************************** #}
+{% block styles %}
+    <link href="{% static 'Biases_T1/css/custom.css' %}" rel="stylesheet">
+{% endblock %}
+
+
+{# ****************************************************************************************************************** #}
+{# *** TITLE *** #}
+{# ****************************************************************************************************************** #}
+{% block title %}
+    Framing
+{% endblock %}
+
+
+{# ****************************************************************************************************************** #}
+{# *** CONTENT *** #}
+{# ****************************************************************************************************************** #}
+{% block content %}
+
+    <div class="wrapper">
+
+       <!-- ------------------------------------------------------------------------------------------------------- -->
+        <!-- Progress Bar -->
+        <!-- ------------------------------------------------------------------------------------------------------- -->
+        <label>
+            Block {{ section }} von {{ section_total }}
+        </label>
+        <div class="progress">
+            <div class="progress-bar-task" role="progressbar" style="width:{{ section_progress }}%;">
+                <span class="sr-only"></span>
+            </div>
+        </div>
+
+        <!-- ------------------------------------------------------------------------------------------------------- -->
+        <!-- Progress Bar -->
+        <!-- ------------------------------------------------------------------------------------------------------- -->
+        <label>
+            Aufgabe {{ page }} von {{ total }}
+        </label>
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" style="width:{{ progress }}%;">
+                <span class="sr-only"></span>
+            </div>
+        </div>
+        <div class="progress-vspace"></div>
+
+
+
+        <!-- ------------------------------------------------------------------------------------------------------- -->
+        <!-- Table - Decision Framing (A or B) -->
+        <!-- ------------------------------------------------------------------------------------------------------- -->
+        <div class="card">
+            <div class="card-header">
+                Welche Alternative bevorzugst du?
+            </div>
+            <table class="table">
+                <tr>
+                    <td>
+                        Stell dir vor, du nimmst an folgendem Spiel teil. Zu Beginn des Spiels erhältst du ein Startgeld
+                        von €100 und musst dann zwischen zwei Alternativen wählen:
+                    </td>
+                </tr>
+            </table>
+            <table class="table">
+                <tr>
+                    <td width="170px" style="padding-left: 30px">
+                        <input type="radio" name="framing_t1" value="A" required> Alternative A:
+                    </td>
+                    <td>
+                        Du verlierst entweder €0 oder €100 mit gleicher Wahrscheinlichkeit (50:50 Chance).
+                    </td>
+                </tr>
+            </table>
+            <table class="table">
+                <tr>
+                    <td width="170px" style="padding-left: 30px">
+                        <input type="radio" name="framing_t1" value="B" required> Alternative B:
+                    </td>
+                    <td>
+                        Du verlierst sicher €50.
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+<div style="text-align: center">
+  <button class="otree-btn-next btn btn-primary">Weiter</button>
+</div>
+
+{% endblock %}

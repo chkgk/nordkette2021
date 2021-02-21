@@ -1,0 +1,86 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{# ****************************************************************************************************************** #}
+{# *** STYLES *** #}
+{# ****************************************************************************************************************** #}
+{% block styles %}
+    <link href="{% static 'Biases_T1/css/custom.css' %}" rel="stylesheet">
+{% endblock %}
+
+
+{# ****************************************************************************************************************** #}
+{# *** TITLE *** #}
+{# ****************************************************************************************************************** #}
+{% block title %}
+    Conjunction Fallacy
+{% endblock %}
+{# ****************************************************************************************************************** #}
+{# *** CONTENT *** #}
+{# ****************************************************************************************************************** #}
+{% block content %}
+
+    <div class="wrapper">
+
+       <!-- ------------------------------------------------------------------------------------------------------- -->
+        <!-- Progress Bar -->
+        <!-- ------------------------------------------------------------------------------------------------------- -->
+        <label>
+            Block {{ section }} von {{ section_total }}
+        </label>
+        <div class="progress">
+            <div class="progress-bar-task" role="progressbar" style="width:{{ section_progress }}%;">
+                <span class="sr-only"></span>
+            </div>
+        </div>
+
+        <!-- ------------------------------------------------------------------------------------------------------- -->
+        <!-- Progress Bar -->
+        <!-- ------------------------------------------------------------------------------------------------------- -->
+        <label>
+            Aufgabe {{ page }} von {{ total }}
+        </label>
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" style="width:{{ progress }}%;">
+                <span class="sr-only"></span>
+            </div>
+        </div>
+        <div class="progress-vspace"></div>
+
+
+        <!-- ------------------------------------------------------------------------------------------------------- -->
+        <!-- Table - Decision Conjunction Fallacy (0 or 1) -->
+        <!-- ------------------------------------------------------------------------------------------------------- -->
+        <div class="card">
+            <div class="card-header">
+                Was ist wahrscheinlicher?
+            </div>
+            <table class="table">
+                <tr>
+                    <td>
+                        <p> Linda ist 31 Jahre alt, ledig und sehr intelligent. Sie hat Philosophie studiert. Als
+                            Studentin beschäftigte sie sich intensiv mit Fragen der Diskriminierung und der
+                            sozialen Gerechtigkeit und nahm auch an Demonstrationen gegen Atomkraft teil.
+                        </p>
+
+                        <p>Was ist wahrscheinlicher?</p>
+                    </td>
+                </tr>
+            </table>
+            <table class="table">
+                <tr>
+                    <td width="170px" style="padding-left: 30px">
+                        <p> <input type="radio" name="conjunction_fallacy" value=0 required> Linda ist eine Bankangestellte.  </p>
+                        <p> <input type="radio" name="conjunction_fallacy" value=1 required> Linda ist eine Bankangestellte und in der Klimaschutzbewegung aktiv. </p>
+
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+<div style="text-align: center">
+  <button class="otree-btn-next btn btn-primary">Weiter</button>
+</div>
+
+{% endblock %}

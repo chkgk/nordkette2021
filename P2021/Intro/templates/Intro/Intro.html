@@ -1,0 +1,45 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{# ****************************************************************************************************************** #}
+{# *** STYLES *** #}
+{# ****************************************************************************************************************** #}
+{% block styles %}
+    <link href="{% static 'global/custom.css' %}" rel="stylesheet">
+{% endblock %}
+
+{# ****************************************************************************************************************** #}
+{# *** TITLE *** #}
+{# ****************************************************************************************************************** #}
+{% block title %}
+    Willkommen
+{% endblock %}
+
+
+{# ****************************************************************************************************************** #}
+{# *** CONTENT *** #}
+{# ****************************************************************************************************************** #}
+{% block content %}
+
+    <div class="wrapper">
+
+        <div class="instructions">
+            <p>
+                Liebe Schülerin, lieber Schüler!
+            </p>
+            <p>
+                Vielen Dank für deine Teilnahme. Der folgende Fragebogen besteht aus einer Reihe von
+                Entscheidungsspielen und Fragen zu unterschiedlichen Themen. Bitte lies die jeweiligen Erklärungen und
+                Fragestellungen aufmerksam durch und fülle den ganzen Fragebogen ehrlich und ohne Hilfe von anderen aus.
+                Verwende bitte auch nicht das Internet, um Antworten zu finden.
+                Der Fragebogen ist selbstverständlich anonym.
+        </div>
+
+
+        <div style="text-align: center">
+        <button class="otree-btn-next btn btn-primary">Weiter</button>
+        </div>
+
+    </div>
+
+{% endblock %}

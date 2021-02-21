@@ -1,0 +1,164 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{# ****************************************************************************************************************** #}
+{# *** STYLES *** #}
+{# ****************************************************************************************************************** #}
+{% block styles %}
+    <link href="{% static 'FinLit/css/custom.css' %}" rel="stylesheet">
+{% endblock %}
+
+
+
+{# ****************************************************************************************************************** #}
+{# *** TITLE *** #}
+{# ****************************************************************************************************************** #}
+{% block title %}
+    Financial Literacy
+{% endblock %}
+
+
+{# ****************************************************************************************************************** #}
+{# *** CONTENT *** #}
+{# ****************************************************************************************************************** #}
+{% block content %}
+
+    <div class="wrapper">
+
+       <!-- ------------------------------------------------------------------------------------------------------- -->
+        <!-- Progress Bar -->
+        <!-- ------------------------------------------------------------------------------------------------------- -->
+        <label>
+            Block {{ section }} von {{ section_total }}
+        </label>
+        <div class="progress">
+            <div class="progress-bar-task" role="progressbar" style="width:{{ section_progress }}%;">
+                <span class="sr-only"></span>
+            </div>
+        </div>
+
+        <!-- ------------------------------------------------------------------------------------------------------- -->
+        <!-- Progress Bar -->
+        <!-- ------------------------------------------------------------------------------------------------------- -->
+        <label>
+            Aufgabe {{ page }} von {{ total }}
+        </label>
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" style="width:{{ progress }}%;">
+                <span class="sr-only"></span>
+            </div>
+        </div>
+        <div class="progress-vspace"></div>
+
+        <!-- ------------------------------------------------------------------------------------------------------- -->
+        <!-- Table - Decision Decoy (C,D or T) -->
+        <!-- ------------------------------------------------------------------------------------------------------- -->
+        <div class="card">
+            <div class="card-header">
+                Bitte beantworte folgende Fragen
+            </div>
+            <table class="table">
+                <tr>
+                    <td>
+                        <b>Frage 1) </b>Angenommen, du hast €100 auf deinem Sparbuch und der Zinssatz beträgt 2% pro
+                        Jahr. Über wieviel verfügst du in 5 Jahren, wenn du das Geld am Sparbuch liegen lässt?
+
+                    </td>
+                </tr>
+            </table>
+            <table class="table">
+                <tr>
+                    <td style="padding-left: 30px">
+                        <p> <input type="radio" name="interest_compounding" value=1 required>  Mehr als €102 </p>
+                        <p> <input type="radio" name="interest_compounding" value=0 required>  Genau €102 </p>
+                        <p> <input type="radio" name="interest_compounding" value=0 required>  Weniger als €102 </p>
+                        <p> <input type="radio" name="interest_compounding" value=404 required>  Weiß ich nicht </p>
+                    </td>
+                </tr>
+            </table>
+
+            <table class="table">
+                <tr>
+                    <td>
+                        <b>Frage 2) </b>Angenommen, der Zinssatz auf deinem Sparbuch liegt bei 1% pro Jahr und die
+                        Inflationsrate bei 2% pro Jahr. Wenn du das Geld ein Jahr auf dem Sparbuch liegen lässt, wie
+                        viel kannst du dir dann im Vergleich zu heute kaufen?
+
+                    </td>
+                </tr>
+            </table>
+            <table class="table">
+                <tr>
+                    <td style="padding-left: 30px">
+                        <p> <input type="radio" name="real_interest" value=0 required>  Mehr als heute </p>
+                        <p> <input type="radio" name="real_interest" value=0 required>  Genau gleich viel </p>
+                        <p> <input type="radio" name="real_interest" value=1 required>  Weniger als heute </p>
+                        <p> <input type="radio" name="real_interest" value=404 required>  Weiß ich nicht </p>
+                    </td>
+                </tr>
+            </table>
+
+            <table class="table">
+                <tr>
+                    <td>
+                        <b>Frage 3) </b>Der Kauf einer einzelnen Aktie bietet normalerweise sicherere Gewinne als der
+                        Kauf eines Aktienfonds (ein Aktienfonds besteht aus mehreren verschiedenen Aktien)
+                    </td>
+                </tr>
+            </table>
+            <table class="table">
+                <tr>
+                    <td style="padding-left: 30px">
+                        <p> <input type="radio" name="diversification" value=0 required>  Richtig </p>
+                        <p> <input type="radio" name="diversification" value=1 required>  Falsch </p>
+                        <p> <input type="radio" name="diversification" value=404 required>  Weiß ich nicht </p>
+                    </td>
+                </tr>
+            </table>
+
+            <table class="table">
+                <tr>
+                    <td>
+                        <b>Frage 4) </b>Wenn die Zinssätze steigen, was passiert dann typischerweise mit
+                        Anleihekursen?
+                    </td>
+                </tr>
+            </table>
+            <table class="table">
+                <tr>
+                    <td style="padding-left: 30px">
+                        <p> <input type="radio" name="bond_pricing" value=0 required>  Sie werden steigen </p>
+                        <p> <input type="radio" name="bond_pricing" value=1 required>  Sie fallen </p>
+                        <p> <input type="radio" name="bond_pricing" value=0 required>  Sie bleiben gleich </p>
+                        <p> <input type="radio" name="bond_pricing" value=0 required>  Es gibt keinen Zusammenhang zwischen Anleihekursen und dem Zinssatz </p>
+                        <p> <input type="radio" name="bond_pricing" value=404 required>  Weiß ich nicht </p>
+                    </td>
+                </tr>
+            </table>
+
+            <table class="table">
+                <tr>
+                    <td>
+                        <b>Frage 5) </b>Ein Kredit mit 15 Jahren Laufzeit erfordert in der Regel höhere monatliche
+                        Zahlungen als ein Kredit mit 30 Jahren Laufzeit. Die Gesamtzinsen, die über die Laufzeit des
+                        Kredits gezahlt werden, sind aber geringer.
+                    </td>
+                </tr>
+            </table>
+            <table class="table">
+                <tr>
+                    <td style="padding-left: 30px">
+                        <p> <input type="radio" name="credit_interest" value=1 required>  Richtig </p>
+                        <p> <input type="radio" name="credit_interest" value=0 required>  Falsch </p>
+                        <p> <input type="radio" name="credit_interest" value=404 required>  Weiß ich nicht </p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+<div style="text-align: center">
+  <button class="otree-btn-next btn btn-primary">Weiter</button>
+</div>
+
+{% endblock %}

@@ -1,0 +1,83 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{# ****************************************************************************************************************** #}
+{# *** STYLES *** #}
+{# ****************************************************************************************************************** #}
+{% block styles %}
+    <link href="{% static 'Biases_T2/css/custom.css' %}" rel="stylesheet">
+{% endblock %}
+
+
+
+{# ****************************************************************************************************************** #}
+{# *** TITLE *** #}
+{# ****************************************************************************************************************** #}
+{% block title %}
+    Decoy
+{% endblock %}
+
+
+{# ****************************************************************************************************************** #}
+{# *** CONTENT *** #}
+{# ****************************************************************************************************************** #}
+{% block content %}
+
+    <div class="wrapper">
+
+       <!-- ------------------------------------------------------------------------------------------------------- -->
+        <!-- Progress Bar -->
+        <!-- ------------------------------------------------------------------------------------------------------- -->
+        <label>
+            Block {{ section }} von {{ section_total }}
+        </label>
+        <div class="progress">
+            <div class="progress-bar-task" role="progressbar" style="width:{{ section_progress }}%;">
+                <span class="sr-only"></span>
+            </div>
+        </div>
+
+        <!-- ------------------------------------------------------------------------------------------------------- -->
+        <!-- Progress Bar -->
+        <!-- ------------------------------------------------------------------------------------------------------- -->
+        <label>
+            Aufgabe {{ page }} von {{ total }}
+        </label>
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" style="width:{{ progress }}%;">
+                <span class="sr-only"></span>
+            </div>
+        </div>
+        <div class="progress-vspace"></div>
+
+        <!-- ------------------------------------------------------------------------------------------------------- -->
+        <!-- Table - Decision Decoy (C,D or T) -->
+        <!-- ------------------------------------------------------------------------------------------------------- -->
+        <div class="card">
+            <div class="card-header">
+                Welches Abo bevorzugst du?
+            </div>
+            <table class="table">
+                <tr>
+                    <td>
+                        Stell dir vor, du möchtest deine Lieblingszeitschrift abonnieren.
+                        Welches der folgenden Abonnements würdest du auswählen?
+                    </td>
+                </tr>
+            </table>
+            <table class="table">
+                <tr>
+                    <td>
+                        <p> <input type="radio" name="decoy_t2" value="C" required> Reines Digitalabo (Online-Zugriff) - €29,00 pro Jahr </p>
+                        <p> <input type="radio" name="decoy_t2" value="T" required> Print- und Digitalabo (Online-Zugriff und gedrucktes Magazin)  - €62,00 pro Jahr </p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+<div style="text-align: center">
+  <button class="otree-btn-next btn btn-primary">Weiter</button>
+</div>
+
+{% endblock %}

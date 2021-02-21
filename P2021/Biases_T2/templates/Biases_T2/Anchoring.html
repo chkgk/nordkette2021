@@ -1,0 +1,113 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+{# ****************************************************************************************************************** #}
+{# *** STYLES *** #}
+{# ****************************************************************************************************************** #}
+{% block styles %}
+    <link href="{% static 'Biases_T2/css/custom.css' %}" rel="stylesheet">
+{% endblock %}
+
+
+
+{# ****************************************************************************************************************** #}
+{# *** TITLE *** #}
+{# ****************************************************************************************************************** #}
+{% block title %}
+    Anchoring
+{% endblock %}
+
+
+{# ****************************************************************************************************************** #}
+{# *** CONTENT *** #}
+{# ****************************************************************************************************************** #}
+{% block content %}
+
+    <div class="wrapper">
+
+       <!-- ------------------------------------------------------------------------------------------------------- -->
+        <!-- Progress Bar -->
+        <!-- ------------------------------------------------------------------------------------------------------- -->
+        <label>
+            Block {{ section }} von {{ section_total }}
+        </label>
+        <div class="progress">
+            <div class="progress-bar-task" role="progressbar" style="width:{{ section_progress }}%;">
+                <span class="sr-only"></span>
+            </div>
+        </div>
+
+        <!-- ------------------------------------------------------------------------------------------------------- -->
+        <!-- Progress Bar -->
+        <!-- ------------------------------------------------------------------------------------------------------- -->
+        <label>
+            Aufgabe {{ page }} von {{ total }}
+        </label>
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" style="width:{{ progress }}%;">
+                <span class="sr-only"></span>
+            </div>
+        </div>
+        <div class="progress-vspace"></div>
+
+        <!-- ------------------------------------------------------------------------------------------------------- -->
+        <!-- Table - Anchoring (integer for WTP) -->
+        <!-- ------------------------------------------------------------------------------------------------------- -->
+        <div class="card">
+            <div class="card-header">
+                Wieviel würdest du bezahlen?
+            </div>
+            <table class="table">
+                <tr>
+                    <td>
+                        Stell dir vor, du möchtest dir neue Kopfhörer kaufen. Du kommst an einem Geschäft vorbei und
+                        siehst im Schaufenster ein neues Modell mit Bluetooth-Funktion (zum Verbinden mit dem Smartphone
+                        oder Tablet), das sehr angenehm zu tragen ist und eine besonders lange Akkulaufzeit bietet.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div style="margin-top: 20px;margin-bottom: 10px">Würdest du mehr als €75 für die Kopfhörer bezahlen? </div>
+                        <div width="170px" style="padding-left: 30px">
+                            <input type="radio" name="anchoring_t2_buy" value=1 required id="yes" onclick="set_min()"> Ja <br/>
+                            <input type="radio" name="anchoring_t2_buy" value=0 required id="no" onclick="dis_min()"> Nein
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div style="margin-top: 20px">Wieviel würdest du für die Kopfhörer bezahlen?</div>
+                        <div class="input-group mb-3" style="width: 30em; margin-top: 10px">
+                             <input type="number" class="form-control" step="any" min="0" max="1000" id="wtp"
+                                name="anchoring_t2_wtp" required>
+                            <div class="input-group-append">
+                            <span class="input-group-text" id="inputGroup-sizing-default ">in €</span>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+<div style="text-align: center">
+  <button class="otree-btn-next btn btn-primary">Weiter</button>
+</div>
+
+<script>
+    var yes = document.getElementById('yes');
+    var no = document.getElementById('no');
+
+    function set_min() {
+        var input = document.getElementById('wtp');
+        if (yes.checked) {
+            input.setAttribute("min", 75);
+        }
+    };
+    function dis_min() {
+            var input = document.getElementById('wtp');
+            if (no.checked) {
+                input.setAttribute("min",0)
+            }
+    };
+</script>
+{% endblock %}

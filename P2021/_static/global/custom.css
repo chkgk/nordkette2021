@@ -1,0 +1,119 @@
+/* ****************************************************************************************************************** */
+/* *** General *** */
+/* ****************************************************************************************************************** */
+
+h2 {
+    text-align: center !important;
+}
+
+.page-header {
+    margin: 40px 0 40px;
+    padding: 0px;
+    border-bottom: none;
+}
+
+.otree-btn-next {
+    margin: 40px auto;
+    display: inherit;
+}
+
+.wrapper, .alert {
+    min-width: 640px;
+    max-width: 640px;
+    margin: 0 auto 20px;
+}
+
+.info {
+    padding: 15px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+}
+
+.task-progress {
+    padding: 30px;
+    font-size: xx-large;
+    font-weight: 600;
+    text-align: center;
+}
+
+.task-progress .btn {
+    margin-top: 30px;
+}
+
+.alert > p {
+    margin-bottom: 0;
+}
+
+.card-header {
+    font-weight: 500;
+    padding: 1rem;
+}
+
+.table {
+    margin-bottom: 0;
+}
+
+/* ****************************************************************************************************************** */
+/* *** Instructions *** */
+/* ****************************************************************************************************************** */
+
+.instructions {
+	width: 100%;
+	height: 100%;
+	background: rgba(255,255,245,0.25);
+	margin: 40px auto;
+    padding: 20px 20px 10px 20px;
+    text-align: left;
+
+    position:relative;
+    -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 0 20px rgba(0, 0, 0, 0.05) inset;
+       -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 0 20px rgba(0, 0, 0, 0.05) inset;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 0 20px rgba(0, 0, 0, 0.05) inset;
+
+    -moz-border-radius: 5px;
+         border-radius: 5px;
+}
+
+
+/* ****************************************************************************************************************** */
+/* *** Progress Bar *** */
+/* ****************************************************************************************************************** */
+
+.progress {
+    height: 14px;
+    margin-bottom: 8px;
+}
+
+.progress-bar {
+    background-color: rgba(91, 192, 222, 0.10);
+    background-image: linear-gradient(to bottom, rgba(43, 102, 154, 0.5) 0, rgba(43, 102, 154, 0.8) 100%);
+    background-repeat: repeat-x;
+    filter:
+}
+
+.progress-bar-task {
+    float: left;
+    width: 0;
+    height: 100%;
+    font-size: 12px;
+    line-height: 20px;
+    text-align: center;
+    -webkit-box-shadow: inset 0 -1px 0 rgba(0,0,0,0.15);
+    box-shadow: inset 0 -1px 0 rgba(0,0,0,0.15);
+    -webkit-transition: width .6s ease;
+    transition: width .6s ease;
+    background-color: rgba(91, 192, 222, 0.10);
+    background-image: linear-gradient(to bottom, rgba(43, 102, 154, 0.2) 0, rgba(43, 102, 154, 0.4) 100%);
+    background-repeat: repeat-x;
+    filter:
+}
+
+.progress-vspace {
+    height: 40px;
+}
+
+label {
+    font-size: smaller;
+    font-style: italic;
+    font-weight: normal;
+    margin-bottom: 3pt;
+}

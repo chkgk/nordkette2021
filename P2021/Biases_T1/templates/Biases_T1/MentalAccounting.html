@@ -1,0 +1,85 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{# ****************************************************************************************************************** #}
+{# *** STYLES *** #}
+{# ****************************************************************************************************************** #}
+{% block styles %}
+    <link href="{% static 'Biases_T1/css/custom.css' %}" rel="stylesheet">
+{% endblock %}
+
+{# ****************************************************************************************************************** #}
+{# *** TITLE *** #}
+{# ****************************************************************************************************************** #}
+{% block title %}
+    Mental Accounting
+{% endblock %}
+
+{# ****************************************************************************************************************** #}
+{# *** CONTENT *** #}
+{# ****************************************************************************************************************** #}
+{% block content %}
+
+    <div class="wrapper">
+
+       <!-- ------------------------------------------------------------------------------------------------------- -->
+        <!-- Progress Bar -->
+        <!-- ------------------------------------------------------------------------------------------------------- -->
+        <label>
+            Block {{ section }} von {{ section_total }}
+        </label>
+        <div class="progress">
+            <div class="progress-bar-task" role="progressbar" style="width:{{ section_progress }}%;">
+                <span class="sr-only"></span>
+            </div>
+        </div>
+
+        <!-- ------------------------------------------------------------------------------------------------------- -->
+        <!-- Progress Bar -->
+        <!-- ------------------------------------------------------------------------------------------------------- -->
+        <label>
+            Aufgabe {{ page }} von {{ total }}
+        </label>
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" style="width:{{ progress }}%;">
+                <span class="sr-only"></span>
+            </div>
+        </div>
+        <div class="progress-vspace"></div>
+
+        <!-- ------------------------------------------------------------------------------------------------------- -->
+        <!-- Table - Mental Accounting (0 or 1) -->
+        <!-- ------------------------------------------------------------------------------------------------------- -->
+        <div class="card">
+            <div class="card-header">
+                Würdest du in die andere Filliale gehen?
+            </div>
+            <table class="table">
+                <tr>
+                    <td>
+                        <p>Stell dir vor, du möchtest dir eine Jacke für €125 und einen Taschenrechner für €15 kaufen.
+                        Der Verkäufer der Jacke teilt dir mit, dass die Jacke in einer anderen Filiale €120 kostet.
+                        Die andere Filiale wäre zirka 20 Gehminuten entfernt.
+                        </p>
+
+                        <p>Würdest du in die andere Filiale gehen?</p>
+                    </td>
+                </tr>
+            </table>
+            <table class="table">
+                <tr>
+                    <td width="170px" style="padding-left: 30px">
+                        <p> <input type="radio" name="mental_accounting_t1" value=1 required> Ja </p>
+                        <p> <input type="radio" name="mental_accounting_t1" value=0 required> Nein </p>
+
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+<div style="text-align: center">
+  <button class="otree-btn-next btn btn-primary">Weiter</button>
+</div>
+
+{% endblock %}
