@@ -10,26 +10,44 @@ from otree.api import (
 )
 
 
-author = 'Your name here'
+author = 'Armando Holzknecht'
 
 doc = """
-Your app description
+Demographics
 """
 
-
+# ******************************************************************************************************************** #
+# *** CLASS CONSTANTS *** #
+# ******************************************************************************************************************** #
 class Constants(BaseConstants):
     name_in_url = 'Demographics'
     players_per_group = None
     num_rounds = 1
 
-
+# ******************************************************************************************************************** #
+# *** CLASS SUBSESSION *** #
+# ******************************************************************************************************************** #
 class Subsession(BaseSubsession):
     pass
 
-
+# ******************************************************************************************************************** #
+# *** CLASS GROUP *** #
+# ******************************************************************************************************************** #
 class Group(BaseGroup):
     pass
 
-
+# ******************************************************************************************************************** #
+# *** CLASS PLAYER *** #
+# ******************************************************************************************************************** #
 class Player(BasePlayer):
-    pass
+    age = models.IntegerField()
+    gender = models.StringField()
+    religion = models.StringField()
+    school_type = models.StringField()
+    school_level = models.IntegerField()
+    math_skill = models.IntegerField()
+    german_skill = models.IntegerField()
+    education_mother = models.IntegerField()
+    education_father = models.IntegerField()
+
+

@@ -1,0 +1,231 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+{# ****************************************************************************************************************** #}
+{# *** STYLES *** #}
+{# ****************************************************************************************************************** #}
+{% block styles %}
+    <link href="{% static 'Demographics/css/custom.css' %}" rel="stylesheet">
+{% endblock %}
+
+
+
+{# ****************************************************************************************************************** #}
+{# *** TITLE *** #}
+{# ****************************************************************************************************************** #}
+{% block title %}
+    Demographics
+{% endblock %}
+
+
+{# ****************************************************************************************************************** #}
+{# *** CONTENT *** #}
+{# ****************************************************************************************************************** #}
+{% block content %}
+
+    <div class="wrapper">
+
+       <!-- ------------------------------------------------------------------------------------------------------- -->
+        <!-- Progress Bar -->
+        <!-- ------------------------------------------------------------------------------------------------------- -->
+        <label>
+            Block {{ section }} von {{ section_total }}
+        </label>
+        <div class="progress">
+            <div class="progress-bar-task" role="progressbar" style="width:{{ section_progress }}%;">
+                <span class="sr-only"></span>
+            </div>
+        </div>
+
+        <!-- ------------------------------------------------------------------------------------------------------- -->
+        <!-- Progress Bar -->
+        <!-- ------------------------------------------------------------------------------------------------------- -->
+        <label>
+            Aufgabe {{ page }} von {{ total }}
+        </label>
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" style="width:{{ progress }}%;">
+                <span class="sr-only"></span>
+            </div>
+        </div>
+        <div class="progress-vspace"></div>
+
+        <!-- ------------------------------------------------------------------------------------------------------- -->
+        <!-- Table - Anchoring (integer for WTP) -->
+        <!-- ------------------------------------------------------------------------------------------------------- -->
+        <div class="card">
+            <div class="card-header">
+                Bitte fülle noch folgende Felder aus
+            </div>
+            <table class="table">
+                <tr>
+                    <td>
+                        Alter:
+                    </td>
+                    <td align="right">
+                        <div class="input-group mb-3" style="width: 10em; margin-top: 10px">
+                             <input type="number" class="form-control" step="any" min="8" max="28" id="wtp"
+                                name="age" required>
+                            <div class="input-group-append">
+                            <span class="input-group-text" id="inputGroup-sizing-default ">Jahre</span>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Geschlecht:
+                    </td>
+                    <td align="right">
+                        <select class="custom-select" name="gender" style="width: 10em" required>
+                        <option value="" disabled selected>Bitte wähle aus</option>
+                        <option value="female">weiblich</option>
+                        <option value="male">männlich</option>
+                        <option value="diverse">divers</option>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Religionsbekenntnis:
+                    </td>
+                    <td align="right">
+                        <select class="custom-select" name="religion" style="width: 10em" required>
+                        <option value="" disabled selected>Bitte wähle aus</option>
+                        <option value="rom.-cath.">Röm.-katholisch</option>
+                        <option value="islamic">Islamisch</option>
+                        <option value="protestant">Evangelisch</option>
+                        <option value="other">Andere</option>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Schulform:
+                    </td>
+                    <td align="right">
+                        <select class="custom-select" style="width: 10em" name="school_type"
+                                onchange="updatelevels(this.selectedIndex)" id="school_type_selection" required>
+                        <option value="" disabled selected>Bitte wähle aus</option>
+                        <option value="ms">Mittelschule</option>
+                        <option value="ahs_lower">AHS Unterstufe</option>
+                        <option value="poly">Polytechnische Schule</option>
+                        <option value="voccational">Berufsschule</option>
+                        <option value="ahs_higher">AHS Oberstufe</option>
+                        <option value="bms_bhs">BMS / BHS</option>
+
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Schulstufe:
+                    </td>
+                    <td align="right">
+                        <select class="custom-select" style="width: 10em" name="school_level"
+                                 id ="school_level_select" required>
+                        <option value="" disabled selected>Bitte wähle zuerst eine Schulstufe aus</option>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Mathematiknote aus dem letzten Schulzeugnis:
+                    </td>
+                    <td align="right">
+                        <select class="custom-select" style="width: 10em" name="math_skill" required>
+                        <option value="" disabled selected>Bitte wähle aus</option>
+                        <option value="1">1 - Sehr gut</option>
+                        <option value="2">2 - Gut</option>
+                        <option value="3">3 - Befriedigend</option>
+                        <option value="4">4 - Genügend</option>
+                        <option value="5">5 - Nicht genügend</option>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Deutschnote aus dem letzten Schulzeugnis:
+                    </td>
+                    <td align="right">
+                        <select class="custom-select" style="width: 10em" name="german_skill" required>
+                        <option value="" disabled selected>Bitte wähle aus</option>
+                        <option value="1">1 - Sehr gut</option>
+                        <option value="2">2 - Gut</option>
+                        <option value="3">3 - Befriedigend</option>
+                        <option value="4">4 - Genügend</option>
+                        <option value="5">5 - Nicht genügend</option>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Höchster Bildungsabschluss Mutter:
+                    </td>
+                    <td align="right">
+                        <select class="custom-select" style="width: 10em" name="education_mother" required>
+                        <option value="" disabled selected>Bitte wähle aus</option>
+                        <option value="1">Kein Schulabschluss</option>
+                        <option value="2">Pflichtschule</option>
+                        <option value="3">Berufsschule</option>
+                        <option value="4">Matura</option>
+                        <option value="5">Fachhochschule oder Universität</option>
+                        <option value="0">Weiß nicht/keine Angabe</option>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Höchster Bildungsabschluss Vater:
+                    </td>
+                    <td align="right">
+                        <select class="custom-select" style="width: 10em" name="education_father" required>
+                        <option value="" disabled selected>Bitte wähle aus</option>
+                        <option value="1">Kein Schulabschluss</option>
+                        <option value="2">Pflichtschule</option>
+                        <option value="3">Berufsschule</option>
+                        <option value="4">Matura</option>
+                        <option value="5">Fachhochschule oder Universität</option>
+                        <option value="0">Weiß nicht/keine Angabe</option>
+                        </select>
+                    </td>
+                </tr>
+
+            </table>
+
+        </div>
+    </div>
+
+<div style="text-align: center">
+  <button class="otree-btn-next btn btn-primary">Weiter</button>
+</div>
+
+<script>
+    var schooltype = document.getElementById('school_type_selection');
+    var schoollevel = document.getElementById('school_level_select');
+
+    var levels = new Array()
+        levels[0]=[""]
+        levels[1]=["Bitte wähle aus|", "5. Schulstufe|5", "6. Schulstufe|6", "7. Schulstufe|7", "8. Schulstufe|8"]
+        levels[2]=["Bitte wähle aus|","5. Schulstufe|5", "6. Schulstufe|6", "7. Schulstufe|7", "8. Schulstufe|8"]
+        levels[3]=["Bitte wähle aus|","9. Schulstufe|9"]
+        levels[4]=["Bitte wähle aus|","10. Schulstufe|10", "11. Schulstufe|11", "12. Schulstufe|12", "13. Schulstufe|13"]
+        levels[5]=["Bitte wähle aus|","9. Schulstufe|9", "10. Schulstufe|10", "11. Schulstufe|11", "12. Schulstufe|12"]
+        levels[6]=["Bitte wähle aus|","9. Schulstufe|9", "10. Schulstufe|10", "11. Schulstufe|11", "12. Schulstufe|12", "13. Schulstufe|13"]
+
+    function updatelevels(selectedschooltype){
+    schoollevel.options.length=0
+    if (selectedschooltype>0){
+        for (i=0; i<levels[selectedschooltype].length; i++)
+            schoollevel.options[schoollevel.options.length]=new Option(levels[selectedschooltype][i].split("|")[0], levels[selectedschooltype][i].split("|")[1])
+    }
+}
+</script>
+{% endblock %}
