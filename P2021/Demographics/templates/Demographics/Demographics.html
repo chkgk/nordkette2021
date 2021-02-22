@@ -13,7 +13,6 @@
 {# *** TITLE *** #}
 {# ****************************************************************************************************************** #}
 {% block title %}
-    Demographics
 {% endblock %}
 
 
@@ -63,7 +62,7 @@
                     </td>
                     <td align="right">
                         <div class="input-group mb-3" style="width: 10em; margin-top: 10px">
-                             <input type="number" class="form-control" step="any" min="8" max="28" id="wtp"
+                             <input type="number" class="form-control" step="any" min="8" max="30" id="wtp"
                                 name="age" required>
                             <div class="input-group-append">
                             <span class="input-group-text" id="inputGroup-sizing-default ">Jahre</span>
@@ -94,6 +93,7 @@
                         <select class="custom-select" name="religion" style="width: 10em" required>
                         <option value="" disabled selected>Bitte wähle aus</option>
                         <option value="rom.-cath.">Röm.-katholisch</option>
+                        <option value="orthodox">Orthodox</option>
                         <option value="islamic">Islamisch</option>
                         <option value="protestant">Evangelisch</option>
                         <option value="other">Andere</option>

@@ -13,7 +13,7 @@
 {# *** TITLE *** #}
 {# ****************************************************************************************************************** #}
 {% block title %}
-    Anchoring
+
 {% endblock %}
 
 
@@ -54,7 +54,7 @@
         <!-- ------------------------------------------------------------------------------------------------------- -->
         <div class="card">
             <div class="card-header">
-                Wieviel würdest du bezahlen?
+                Frage {{ page }})
             </div>
             <table class="table">
                 <tr>
@@ -80,7 +80,7 @@
                              <input type="number" class="form-control" step="any" min="0" max="1000" id="wtp"
                                 name="anchoring_t2_wtp" required>
                             <div class="input-group-append">
-                            <span class="input-group-text" id="inputGroup-sizing-default ">in €</span>
+                            <span class="input-group-text" id="inputGroup-sizing-default ">€</span>
                             </div>
                         </div>
                     </td>
@@ -96,18 +96,40 @@
 <script>
     var yes = document.getElementById('yes');
     var no = document.getElementById('no');
+    const wtp = document.getElementById("wtp");
 
     function set_min() {
         var input = document.getElementById('wtp');
         if (yes.checked) {
             input.setAttribute("min", 75);
+            input.setCustomValidity("Die eingegebene Nummer muss mindestens 75 betragen, da oben 'Ja' angegeben wurde")
+            wtp.addEventListener("input", function (event) {
+                if (wtp.value < 75) {
+                    wtp.setCustomValidity("Die eingegebene Nummer muss mindestens 75 betragen, da oben 'Ja' angegeben wurde");
+                } else {
+                    wtp.setCustomValidity("");
+                }
+            })
         }
-    };
+    }
+
     function dis_min() {
-            var input = document.getElementById('wtp');
-            if (no.checked) {
-                input.setAttribute("min",0)
-            }
-    };
+        var input = document.getElementById('wtp');
+        if (no.checked) {
+            input.setAttribute("min", 0);
+            input.setCustomValidity("")
+            wtp.addEventListener("input", function (event) {
+                    wtp.setCustomValidity("");
+            })
+        }
+    }
+
+
+
+
+
+
+
+
 </script>
 {% endblock %}
