@@ -104,7 +104,7 @@
             input.setAttribute("min", 76);
             input.setCustomValidity("Die eingegebene Nummer muss mindestens 76 betragen, da oben 'Ja' angegeben wurde")
             wtp.addEventListener("input", function (event) {
-                if (wtp.value < 75) {
+                if (wtp.value < 76) {
                     wtp.setCustomValidity("Die eingegebene Nummer muss mindestens 75 betragen, da oben 'Ja' angegeben wurde");
                 } else {
                     wtp.setCustomValidity("");

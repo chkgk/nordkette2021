@@ -2,14 +2,15 @@ from otree.api import Currency as c, currency_range
 from ._builtin import Page, WaitPage
 from .models import Constants
 from . import models
+import random
+import json
 
 # ******************************************************************************************************************** #
 # *** PAGE DECOY *** #
 # ******************************************************************************************************************** #
 class Decoy(Page):
-    def is_displayed(self):
+    def before_next_page(self):
         self.participant.vars["page_count"] += 1
-        return self.round_number == self.participant.vars['task_rounds']['A']
 
     # form model and form fields
     # ----------------------------------------------------------------------------------------------------------------
@@ -27,7 +28,7 @@ class Decoy(Page):
 
         # specify info for progress bar
         total = 5
-        page = self.subsession.round_number
+        page = self.participant.vars["page_count"]
         progress = page / total * 100
 
         return {
@@ -43,10 +44,8 @@ class Decoy(Page):
 # *** PAGE ANCHORING *** #
 # ******************************************************************************************************************** #
 class Anchoring(Page):
-    def is_displayed(self):
+    def before_next_page(self):
         self.participant.vars["page_count"] += 1
-        return self.round_number == self.participant.vars['task_rounds']['B']
-
 
     # form model and form fields
     # ----------------------------------------------------------------------------------------------------------------
@@ -63,7 +62,7 @@ class Anchoring(Page):
 
         # specify info for progress bar
         total = 5
-        page = self.subsession.round_number
+        page = self.participant.vars["page_count"]
         progress = page / total * 100
 
         return {
@@ -80,14 +79,14 @@ class Anchoring(Page):
 # *** PAGE FRAMING *** #
 # ******************************************************************************************************************** #
 class Framing(Page):
-    def is_displayed(self):
+    def before_next_page(self):
         self.participant.vars["page_count"] += 1
-        return self.round_number == self.participant.vars['task_rounds']['C']
 
     # form model and form fields
     # ----------------------------------------------------------------------------------------------------------------
     form_model = models.Player
     form_fields = ['framing_t1']
+
 
     def vars_for_template(self):
         # specify info for task progress
@@ -97,7 +96,7 @@ class Framing(Page):
 
         # specify info for progress bar
         total = 5
-        page = self.subsession.round_number
+        page = self.participant.vars["page_count"]
         progress = page / total * 100
 
         return {
@@ -113,9 +112,8 @@ class Framing(Page):
 # *** PAGE MENTAL ACCOUNTING *** #
 # ******************************************************************************************************************** #
 class MentalAccounting(Page):
-    def is_displayed(self):
+    def before_next_page(self):
         self.participant.vars["page_count"] += 1
-        return self.round_number == self.participant.vars['task_rounds']['D']
 
     # form model and form fields
     # ----------------------------------------------------------------------------------------------------------------
@@ -130,7 +128,7 @@ class MentalAccounting(Page):
 
         # specify info for progress bar
         total = 5
-        page = self.subsession.round_number
+        page = self.participant.vars["page_count"]
         progress = page / total * 100
 
         return {
@@ -147,10 +145,7 @@ class MentalAccounting(Page):
 # ******************************************************************************************************************** #
 class ConjunctionFallacy(Page):
     def before_next_page(self):
-        self.player.task_sequence = str(self.participant.vars["task_sequence_t1"])
-        #print(str(self.participant.vars["task_sequence_t1"]))
-    def is_displayed(self):
-        return self.round_number == self.participant.vars['task_rounds']['E']
+        self.participant.vars["page_count"] = 1
 
     # form model and form fields
     # ----------------------------------------------------------------------------------------------------------------
@@ -165,7 +160,7 @@ class ConjunctionFallacy(Page):
 
         # specify info for progress bar
         total = 5
-        page = self.subsession.round_number
+        page = self.participant.vars["page_count"]
         progress = page / total * 100
 
         return {
@@ -178,5 +173,32 @@ class ConjunctionFallacy(Page):
         }
 
 
+initial_page_sequence = [
+    Decoy,
+    Anchoring,
+    Framing,
+    MentalAccounting,
+    ConjunctionFallacy
+]
+
 #compute page sequence
-page_sequence = [Decoy,Anchoring,Framing,MentalAccounting,ConjunctionFallacy]
+page_sequence = [
+
+]
+
+
+class MyPage(Page):
+    def inner_dispatch(self):
+        page_seq = int(self.__class__.__name__.split('_')[1])
+        page_to_show = json.loads(self.player.page_sequence_t1)[page_seq]
+        self._is_frozen = False
+        self.__class__ = globals()[page_to_show]
+        return super(globals()[page_to_show], self).inner_dispatch()
+
+
+for i, _ in enumerate(initial_page_sequence):
+    NewClassName = "Page_{}".format(i)
+    A = type(NewClassName, (MyPage,), {})
+    locals()[NewClassName] = A
+    page_sequence.append(locals()[NewClassName])
+

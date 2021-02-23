@@ -9,6 +9,8 @@ from otree.api import (
     currency_range,
 )
 import random
+import itertools
+import json
 
 author = 'Armando Holzknecht'
 
@@ -23,22 +25,24 @@ Treatment 1 for biases Decoy, Anchoring, Framing, Mental Accounting and Conjunct
 class Constants(BaseConstants):
     name_in_url = 'Biases_T1'
     players_per_group = None
-    poss_task_sequences = [["A","B","C","D","E"], ["D","C","B","A","E"], ["C","B","A","D","E"]]
-    num_rounds = 5
+    num_rounds = 1
 
 # ******************************************************************************************************************** #
 # *** CLASS SUBSESSION *** #
 # ******************************************************************************************************************** #
 class Subsession(BaseSubsession):
     def creating_session(self):
-        if self.round_number == 1:
-            #define page counter and task sequence
-            for p in self.get_players():
-                round_numbers = list(range(1, Constants.num_rounds+1))
-                task_sequence = random.choice(Constants.poss_task_sequences)
-                p.participant.vars["task_sequence_t1"] = task_sequence
-                p.participant.vars["task_rounds"] = dict(zip(task_sequence,round_numbers))
-                p.participant.vars["page_count"] = 0
+        from .pages import initial_page_sequence
+        ini = [i.__name__ for i in initial_page_sequence]
+        for p in self.get_players():
+            pb = ini.copy()
+            random.shuffle(pb)
+            p.page_sequence_t1 = json.dumps(random.choice([['Decoy','Anchoring','Framing','MentalAccounting','ConjunctionFallacy'],
+                                                       ['MentalAccounting','Framing','Anchoring','Decoy','ConjunctionFallacy'],
+                                                        ['Framing','Anchoring','Decoy','MentalAccounting','ConjunctionFallacy']]))
+            p.participant.vars["page_count"] = 1
+            p.participant.vars["task_sequence"] = p.page_sequence_t1
+
 
 
 # ******************************************************************************************************************** #
@@ -51,7 +55,7 @@ class Group(BaseGroup):
 # *** CLASS PLAYER *** #
 # ******************************************************************************************************************** #
 class Player(BasePlayer):
-    task_sequence = models.StringField()
+    page_sequence_t1 = models.StringField()
     decoy_t1 = models.StringField()
     anchoring_t1_wtp = models.FloatField()
     framing_t1 = models.StringField()
