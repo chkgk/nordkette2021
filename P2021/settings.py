@@ -5,7 +5,8 @@ SESSION_CONFIGS = [
         name='Demo',
         display_name="Demo",
         num_demo_participants=3,
-        app_sequence=['Intro','Biases_T1','FinLit','Preferences','Field_Behavior','Biases_T2','Demographics']
+        app_sequence=['Intro','Biases_T1','FinLit','Preferences','Field_Behavior','Biases_T2','Demographics'],
+        use_browser_bots = False
      ),
 ]
 
