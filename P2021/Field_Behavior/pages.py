@@ -9,7 +9,7 @@ from . import models
 class Field_Behavior(Page):
     #specify form models and form fields
     form_model = models.Player
-    form_fields = []
+    form_fields = ['gambling','general_risk','saving','temptation']
 
     def vars_for_template(self):
         # specify info for task progress
@@ -18,7 +18,7 @@ class Field_Behavior(Page):
         section_progress = section / section_total * 100
 
         # specify info for progress bar
-        total = 1
+        total = 2
         page = 1
         progress = page / total * 100
 
@@ -30,7 +30,6 @@ class Field_Behavior(Page):
             'total': total,
             'progress': progress,
         }
-
 
 
 page_sequence = [Field_Behavior]
