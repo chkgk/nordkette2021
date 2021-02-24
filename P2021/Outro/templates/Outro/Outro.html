@@ -1,0 +1,56 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{# ****************************************************************************************************************** #}
+{# *** STYLES *** #}
+{# ****************************************************************************************************************** #}
+{% block styles %}
+    <link href="{% static 'global/custom.css' %}" rel="stylesheet">
+{% endblock %}
+
+{# ****************************************************************************************************************** #}
+{# *** TITLE *** #}
+{# ****************************************************************************************************************** #}
+{% block title %}
+    Geschafft!
+{% endblock %}
+
+
+{# ****************************************************************************************************************** #}
+{# *** CONTENT *** #}
+{# ****************************************************************************************************************** #}
+{% block content %}
+
+    <div class="wrapper">
+
+        <div class="instructions">
+            <p>
+                Liebe Schülerin, lieber Schüler!
+            </p>
+            <p>
+                Vielen Dank für deine Teilnahme an unserem Fragebogen. Falls dich Experimente solcher Art begeistern und
+                wir dein Interesse wecken konnten, kannst du gerne deine E-Mail im untenstehenden Feld für zukünftige Erhebungen
+                hinterlegen. Damit können wir dich in Zukunft kontaktieren, sofern ein ähnliches Projekt wie dieses
+                durchgeführt wird.
+            </p>
+            <p>E-Mail-Adresse für die Teilnahme an weiteren Experimenten (optional):</p>
+             <div class="input-group mb-3" style="width: 320px;">
+                 <div class="input-group-append">
+                     <span class="input-group-text" id="inputGroup-sizing-default ">E-Mail:</span>
+                 </div>
+                 <input type="email" class="form-control" step="any" placeholder="anna.musterschülerin@tsn.at"
+                        oninvalid="this.setCustomValidity('Dieses Feld muss entweder eine E-Mail-Adresse beinhalten oder leer sein.')"
+                        oninput="this.setCustomValidity('')" name="e_mail_address">
+             </div>
+        </div>
+
+
+
+
+        <div style="text-align: center">
+        <button class="otree-btn-next btn btn-primary">Weiter</button>
+        </div>
+
+    </div>
+
+{% endblock %}

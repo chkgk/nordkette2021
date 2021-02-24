@@ -12,14 +12,14 @@ from otree.api import (
 
 author = 'Armando Holzknecht'
 doc = """
-Introduction
+Outropage
 """
 
 # ******************************************************************************************************************** #
 # *** CLASS CONSTANTS *** #
 # ******************************************************************************************************************** #
 class Constants(BaseConstants):
-    name_in_url = 'Intro'
+    name_in_url = 'Outro'
     players_per_group = None
     num_rounds = 1
 
@@ -28,12 +28,7 @@ class Constants(BaseConstants):
 # *** CLASS SUBSESSION *** #
 # ******************************************************************************************************************** #
 class Subsession(BaseSubsession):
-
-    def creating_session(self):
-        for p in self.get_players():
-            p.participant.vars['task'] = []
-            p.participant.vars['task_total'] = 6
-
+    pass
 
 # ******************************************************************************************************************** #
 # *** CLASS GROUP *** #
@@ -45,4 +40,4 @@ class Group(BaseGroup):
 # *** CLASS PLAYER *** #
 # ******************************************************************************************************************** #
 class Player(BasePlayer):
-    pass
+    e_mail_address = models.StringField(blank=True)
