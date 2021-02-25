@@ -31,5 +31,30 @@ class Field_Behavior(Page):
             'progress': progress,
         }
 
+class Perception_Questions(Page):
+    #specify form models and form fields
+    form_model = models.Player
+    form_fields = ['financial_troubles','fin_education_school','fin_education_parents']
 
-page_sequence = [Field_Behavior]
+    def vars_for_template(self):
+        # specify info for task progress
+        section = 4
+        section_total = 6
+        section_progress = section / section_total * 100
+
+        # specify info for progress bar
+        total = 2
+        page = 2
+        progress = page / total * 100
+
+        return {
+            'section': section,
+            'section_total': section_total,
+            'section_progress': section_progress,
+            'page': page,
+            'total': total,
+            'progress': progress,
+        }
+
+
+page_sequence = [Field_Behavior,Perception_Questions]

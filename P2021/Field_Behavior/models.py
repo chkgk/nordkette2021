@@ -40,11 +40,11 @@ class Group(BaseGroup):
 # *** CLASS PLAYER *** #
 # ******************************************************************************************************************** #
 class Player(BasePlayer):
-    gambling = models.IntegerField(blank=True)
-    general_risk = models.IntegerField(blank=True)
-    saving = models.IntegerField(blank=True)
-    temptation = models.IntegerField(blank=True)
+    gambling = models.IntegerField()
+    general_risk = models.IntegerField()
+    saving = models.IntegerField()
+    temptation = models.IntegerField()
 
-    financial_troubles = models.IntegerField(blank=True)
-    fin_education_school = models.IntegerField(blank=True)
-    fin_education_parents = models.IntegerField(blank=True)
+    financial_troubles = models.IntegerField()
+    fin_education_school = models.IntegerField()
+    fin_education_parents = models.IntegerField()

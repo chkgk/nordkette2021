@@ -26,3 +26,9 @@ input[type="radio"] {
   vertical-align: middle;
 }
 
+input[type="radio"] {
+  margin-top: -6px;
+  horiz-align: center;
+  vertical-align: middle;
+}
+

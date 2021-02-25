@@ -40,7 +40,7 @@ class Group(BaseGroup):
 # *** CLASS PLAYER *** #
 # ******************************************************************************************************************** #
 class Player(BasePlayer):
-    age = models.IntegerField()
+    age = models.FloatField()
     gender = models.StringField()
     religion = models.StringField()
     school_type = models.StringField()
