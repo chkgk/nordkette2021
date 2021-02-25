@@ -5,7 +5,7 @@
 {# *** STYLES *** #}
 {# ****************************************************************************************************************** #}
 {% block styles %}
-    <link href="{% static 'Preference/css/custom.css' %}" rel="stylesheet">
+    <link href="{% static 'Preferences/css/custom.css' %}" rel="stylesheet">
 {% endblock %}
 
 
@@ -58,8 +58,334 @@
                 Entscheidungsspiel 1)
             </div>
 
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td>
+                        <div style="text-align: justify;">
+                            <p>
+                            Stell dir vor, du kannst eines der folgenden sechs
+                            Spiele aussuchen. Die Spiele sind in der Tabelle unten abgebildet. Bei jedem Spiel gibt es zwei mögliche
+                            Ergebnisse, wobei ein Münzwurf (Kopf oder Zahl) entscheidet, ob du den linken oder den rechten
+                            Betrag erhältst. Wenn du dich für ein Spiel entschieden hast, ist die Wahrscheinlichkeit, den linken
+                            oder rechten Betrag zu bekommen, also gleich hoch (50:50-Chance).
+                        </p>
+
+                        <p>
+                            Bitte wähle nun aus, für welches Spiel du dich entscheiden würdest:
+                        </p>
+                        </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+             <table class="table" style="background-color: rgba(0,0,0,0.00)">
+                <tbody>
+                    <tr>
+                        <th>
+                            <div style="text-align: right;padding-right: 150px">Münzwurf ist ...</div>
+                        </th>
+                    </tr>
+                </tbody>
+            </table>
+
+             <table class="table" style="height: 30px">
+                <tbody>
+                    <tr align="center" style="background-color: rgba(0,0,0,0.00)">
+                        <th>Spiel</th>
+                        <th>Kopf</th>
+                        <th></th>
+                        <th>Zahl</th>
+                    </tr>
+
+                    <tr align="center">
+                        <td style="font-style: italic">1 <input type="radio" name="risk_preference" value="1" id="rp_1" onclick="rp_1_pattern()" required></td>
+                        <td>10€</td>
+                        <td>oder</td>
+                        <td>10€</td>
+                    </tr>
+
+                    <tr align="center">
+                        <td style="font-style: italic">2 <input type="radio" name="risk_preference" value="2" id="rp_2" onclick="rp_2_pattern()" required></td>
+                        <td>8€</td>
+                        <td>oder</td>
+                        <td>13€</td>
+                    </tr>
+
+                    <tr align="center">
+                        <td style="font-style: italic">3 <input type="radio" name="risk_preference" value="3" id="rp_3" onclick="rp_3_pattern()" required></td>
+                        <td>6€</td>
+                        <td>oder</td>
+                        <td>16€</td>
+                    </tr>
+
+                    <tr align="center">
+                        <td style="font-style: italic">4 <input type="radio" name="risk_preference" value="4" id="rp_4" onclick="rp_4_pattern()" required></td>
+                        <td>4€</td>
+                        <td>oder</td>
+                        <td>19€</td>
+                    </tr>
+
+                    <tr align="center">
+                        <td style="font-style: italic">5 <input type="radio" name="risk_preference" value="5" id="rp_5" onclick="rp_5_pattern()" required></td>
+                        <td>2€</td>
+                        <td>oder</td>
+                        <td>22€</td>
+                    </tr>
+
+                    <tr align="center">
+                        <td style="font-style: italic">6 <input type="radio" name="risk_preference" value="6" id="rp_6" onclick="rp_6_pattern()" required></td>
+                        <td>0€</td>
+                        <td>oder</td>
+                        <td>24€</td>
+                    </tr>
+                </tbody>
+            </table>
+             <p>
+
+             </p>
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th>Schnell-Check (für das von dir ausgewählte Spiel):</th>
+                    </tr>
+
+                    <tr>
+                        <td>Wenn die Münze Kopf zeigt, erhalte ich
+                            <input type="text" style="width: 35px" id="check_heads"
+                                    oninvalid="counter_heads()"> Euro.
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Wenn die Münze Zahl zeigt, erhalte ich
+                            <input type="text" style="width: 35px" id ="check_tails"
+                                   oninvalid="counter_tails()"> Euro.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <input type="number" name="fail_counter_heads" id="fail_heads_passon" value="0" hidden>
+             <input type="number" name="fail_counter_tails" id="fail_tails_passon" value="0" hidden>
         </div>
     </div>
+
+<script>
+fail_heads = 0
+fail_tails = 0
+
+function rp_1_pattern() {
+    var rp_1 = document.getElementById("rp_1")
+    var heads = document.getElementById("check_heads")
+    var tails = document.getElementById("check_tails")
+
+    if (rp_1.checked) {
+        heads.value = ""
+        tails.value = ""
+        heads.pattern = "10"
+        tails.pattern = "10"
+        heads.setAttribute("required","True")
+        tails.setAttribute("required","True")
+        heads.setCustomValidity("Weil du oben Spiel 1 gewählt hast, erhältst du bei Kopf den dort angeführten Betrag.")
+        heads.addEventListener("input", function (event) {
+                if (heads.value !== heads.pattern) {
+                    heads.setCustomValidity("Weil du oben Spiel 1 gewählt hast, erhältst du bei Kopf den dort angeführten Betrag.");
+                } else {
+                    heads.setCustomValidity("");
+                }
+            })
+        tails.setCustomValidity("Weil du oben Spiel 1 gewählt hast, erhältst du bei Zahl den dort angeführten Betrag.")
+        tails.addEventListener("input", function (event) {
+                if (tails.value !== tails.pattern) {
+                    tails.setCustomValidity("Weil du oben Spiel 1 gewählt hast, erhältst du bei Zahl den dort angeführten Betrag.");
+                } else {
+                    tails.setCustomValidity("");
+                }
+            })
+    }
+}
+
+function rp_2_pattern() {
+    var rp_2 = document.getElementById("rp_2")
+    var heads = document.getElementById("check_heads")
+    var tails = document.getElementById("check_tails")
+
+    if (rp_2.checked) {
+        heads.value = ""
+        tails.value = ""
+        heads.pattern = "8"
+        tails.pattern = "13"
+        heads.setAttribute("required","True")
+        tails.setAttribute("required","True")
+        heads.setCustomValidity("Weil du oben Spiel 2 gewählt hast, erhältst du bei Kopf den dort angeführten Betrag.")
+        heads.addEventListener("input", function (event) {
+                if (heads.value !== heads.pattern) {
+                    heads.setCustomValidity("Weil du oben Spiel 2 gewählt hast, erhältst du bei Kopf den dort angeführten Betrag.");
+                } else {
+                    heads.setCustomValidity("");
+                }
+            })
+        tails.setCustomValidity("Weil du oben Spiel 2 gewählt hast, erhältst du bei Zahl den dort angeführten Betrag.")
+        tails.addEventListener("input", function (event) {
+                if (tails.value !== tails.pattern) {
+                    tails.setCustomValidity("Weil du oben Spiel 2 gewählt hast, erhältst du bei Zahl den dort angeführten Betrag.");
+                } else {
+                    tails.setCustomValidity("");
+                }
+            })
+    }
+}
+
+function rp_3_pattern() {
+    var rp_3 = document.getElementById("rp_3")
+    var heads = document.getElementById("check_heads")
+    var tails = document.getElementById("check_tails")
+
+    if (rp_3.checked) {
+        heads.value = ""
+        tails.value = ""
+        heads.pattern = "6"
+        tails.pattern = "16"
+        heads.setAttribute("required","True")
+        tails.setAttribute("required","True")
+        heads.setCustomValidity("Weil du oben Spiel 3 gewählt hast, erhältst du bei Kopf den dort angeführten Betrag.")
+        heads.addEventListener("input", function (event) {
+                if (heads.value !== heads.pattern) {
+                    heads.setCustomValidity("Weil du oben Spiel 2 gewählt hast, erhältst du bei Kopf den dort angeführten Betrag.");
+                } else {
+                    heads.setCustomValidity("");
+                }
+            })
+        tails.setCustomValidity("Weil du oben Spiel 3 gewählt hast, erhältst du bei Zahl den dort angeführten Betrag.")
+        tails.addEventListener("input", function (event) {
+                if (tails.value !== tails.pattern) {
+                    tails.setCustomValidity("Weil du oben Spiel 3 gewählt hast, erhältst du bei Zahl den dort angeführten Betrag.");
+                } else {
+                    tails.setCustomValidity("");
+                }
+            })
+    }
+}
+
+function rp_4_pattern() {
+    var rp_4 = document.getElementById("rp_4")
+    var heads = document.getElementById("check_heads")
+    var tails = document.getElementById("check_tails")
+
+    if (rp_4.checked) {
+        heads.value = ""
+        tails.value = ""
+        heads.pattern = "4"
+        tails.pattern = "19"
+        heads.setAttribute("required","True")
+        tails.setAttribute("required","True")
+        heads.setCustomValidity("Weil du oben Spiel 4 gewählt hast, erhältst du bei Kopf den dort angeführten Betrag.")
+        heads.addEventListener("input", function (event) {
+                if (heads.value !== heads.pattern) {
+                    heads.setCustomValidity("Weil du oben Spiel 4 gewählt hast, erhältst du bei Kopf den dort angeführten Betrag.");
+                } else {
+                    heads.setCustomValidity("");
+                }
+            })
+        tails.setCustomValidity("Weil du oben Spiel 4 gewählt hast, erhältst du bei Zahl den dort angeführten Betrag.")
+        tails.addEventListener("input", function (event) {
+                if (tails.value !== tails.pattern) {
+                    tails.setCustomValidity("Weil du oben Spiel 4 gewählt hast, erhältst du bei Zahl den dort angeführten Betrag.");
+                } else {
+                    tails.setCustomValidity("");
+                }
+            })
+    }
+}
+
+function rp_5_pattern() {
+    var rp_5 = document.getElementById("rp_5")
+    var heads = document.getElementById("check_heads")
+    var tails = document.getElementById("check_tails")
+
+    if (rp_5.checked) {
+        heads.value = ""
+        tails.value = ""
+        heads.pattern = "2"
+        tails.pattern = "22"
+        heads.setAttribute("required","True")
+        tails.setAttribute("required","True")
+        heads.setCustomValidity("Weil du oben Spiel 5 gewählt hast, erhältst du bei Kopf den dort angeführten Betrag.")
+        heads.addEventListener("input", function (event) {
+                if (heads.value !== heads.pattern) {
+                    heads.setCustomValidity("Weil du oben Spiel 5 gewählt hast, erhältst du bei Kopf den dort angeführten Betrag.");
+                } else {
+                    heads.setCustomValidity("");
+                }
+            })
+        tails.setCustomValidity("Weil du oben Spiel 5 gewählt hast, erhältst du bei Zahl den dort angeführten Betrag.")
+        tails.addEventListener("input", function (event) {
+                if (tails.value !== tails.pattern) {
+                    tails.setCustomValidity("Weil du oben Spiel 5 gewählt hast, erhältst du bei Zahl den dort angeführten Betrag.");
+                } else {
+                    tails.setCustomValidity("");
+                }
+            })
+    }
+}
+
+function rp_6_pattern() {
+    var rp_6 = document.getElementById("rp_6")
+    var heads = document.getElementById("check_heads")
+    var tails = document.getElementById("check_tails")
+
+    if (rp_6.checked) {
+        heads.value = ""
+        tails.value = ""
+        heads.pattern = "0"
+        tails.pattern = "24"
+        heads.setAttribute("required","True")
+        tails.setAttribute("required","True")
+        heads.setCustomValidity("Weil du oben Spiel 6 gewählt hast, erhältst du bei Kopf den dort angeführten Betrag.")
+        heads.addEventListener("input", function (event) {
+                if (heads.value !== heads.pattern) {
+                    heads.setCustomValidity("Weil du oben Spiel 6 gewählt hast, erhältst du bei Kopf den dort angeführten Betrag.");
+                } else {
+                    heads.setCustomValidity("");
+                }
+            })
+        tails.setCustomValidity("Weil du oben Spiel 6 gewählt hast, erhältst du bei Zahl den dort angeführten Betrag.")
+        tails.addEventListener("input", function (event) {
+                if (tails.value !== tails.pattern) {
+                    tails.setCustomValidity("Weil du oben Spiel 6 gewählt hast, erhältst du bei Zahl den dort angeführten Betrag.");
+                } else {
+                    tails.setCustomValidity("");
+                }
+            })
+    }
+}
+
+
+function counter_heads() {
+    var heads = document.getElementById("check_heads")
+    correct_answer = heads.pattern
+    value = heads.value
+
+    if (correct_answer !== value){
+        fail_heads++
+    }
+    document.getElementById("fail_heads_passon").value = fail_heads;
+}
+
+function counter_tails() {
+    var tails = document.getElementById("check_tails")
+    correct_answer = tails.pattern
+    value = tails.value
+
+    if (correct_answer !== value){
+        fail_tails++
+    }
+    document.getElementById("fail_tails_passon").value = fail_tails;
+}
+
+</script>
+
 <div style="text-align: center">
   <button class="otree-btn-next btn btn-primary">Weiter</button>
 </div>

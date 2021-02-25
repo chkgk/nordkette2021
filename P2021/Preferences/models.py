@@ -40,4 +40,13 @@ class Group(BaseGroup):
 # *** CLASS PLAYER *** #
 # ******************************************************************************************************************** #
 class Player(BasePlayer):
-    pass
+    risk_preference = models.IntegerField()
+    fail_counter_heads = models.IntegerField()
+    fail_counter_tails = models.IntegerField()
+
+    time_preference_1 = models.IntegerField()
+    time_preference_2 = models.IntegerField()
+    time_preference_3 = models.IntegerField()
+    time_preference_4 = models.IntegerField()
+    time_preference_5 = models.IntegerField()
+    time_preference_6 = models.IntegerField()

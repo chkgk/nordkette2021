@@ -9,7 +9,7 @@ from . import models
 class RiskPreference(Page):
     #specify form models and form fields
     form_model = models.Player
-    form_fields = []
+    form_fields = ['risk_preference','fail_counter_heads','fail_counter_tails']
 
     def vars_for_template(self):
         # specify info for task progress
