@@ -10,9 +10,9 @@ class PlayerBot(Bot):
         # ------------------------------------------------------------------------------------------------------------ #
         # make decisions
         # ------------------------------------------------------------------------------------------------------------ #
-            yield (pages.FinLit, {'interest_compounding': random.choice([1,0,0,404]),
-                                  'real_interest': random.choice([0,0,1,404]),
-                                  'diversification': random.choice([0,1,404]),
-                                  'bond_pricing': random.choice([0,1,0,0,404]),
-                                  'credit_interest': random.choice([1,0,404])})
+            yield (pages.FinLit, {'interest_compounding': random.choice([1,2,3,-1]),
+                                  'real_interest': random.choice([2,3,1,-1]),
+                                  'diversification': random.choice([2,1,-1]),
+                                  'bond_pricing': random.choice([2,1,3,4,-1]),
+                                  'credit_interest': random.choice([1,2,-1])})
 
