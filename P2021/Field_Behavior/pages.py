@@ -74,4 +74,4 @@ class SubIntroB2(Page):
     timeout_seconds = 30
     timer_text = "Verbleibende Zeit bis du automatisch weitergeleitet wirst:"
 
-page_sequence = [Field_Behavior,Perception_Questions, SubIntroB2]
+page_sequence = [SubIntro, Field_Behavior, Perception_Questions, SubIntroB2]

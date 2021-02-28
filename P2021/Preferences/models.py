@@ -50,3 +50,4 @@ class Player(BasePlayer):
     time_preference_4 = models.StringField()
     time_preference_5 = models.StringField()
     time_preference_6 = models.StringField()
+    fail_counter_tp = models.IntegerField()

@@ -11,6 +11,7 @@ class PlayerBot(Bot):
             tp_dict = dict()
             for k,v in zip(a,b):
                 tp_dict[("time_preference_{i}".format(i=k))] = v
+            tp_dict["fail_counter_tp"] = random.randint(0,2)
             return tp_dict
 
         yield(pages.SubIntro)

@@ -61,17 +61,17 @@
                 <tr>
                     <td style="text-align: justify">
                         <p>
-                            Stell dir vor, du kannst bei den nächsten 6 Entscheidungen wählen, ob du lieber heute 10€, oder
-                            in 6 Monaten einen höheren Betrag erhalten möchtest. Der Betrag in 6 Monaten steigt dabei von
-                            Entscheidung zu Entscheidung um 1€ an (von 11€ in der ersten Entscheidung bis zu 16€ in der
-                            sechsten Entscheidung).
+                            In der folgenden Tabelle siehst du in jeder Zeile zwei Zahlungen: 10€ heute, oder einen
+                            höheren Betrag in 6 Monaten. Der Betrag in 6 Monaten steigt dabei von Zeile zu Zeile um 1€
+                            an (von 11€ in der ersten Zeile bis zu 16€ in der sechsten Zeile).
                         </p>
                         <p>
-                            Bitte kreuze nun in jeder der Zeilen 1 bis 6 an, welche Variante (10€ heute oder den höheren
-                            Betrag in 6 Monaten) du bevorzugst.
-                        </p>
-                        <p>
-                            Du kannst dir die Frage auch so vorstellen, ab welchem Betrag du bereit wärst, 6 Monate auf die Zahlung zu warten.
+                            Bitte überlege dir für jede der 6 Zeilen, welche Zahlung (A: 10€ heute oder B: den höheren
+                            Betrag in 6 Monaten) du bevorzugen würdest. Du kannst dir die Frage auch so vorstellen, ab
+                            welchem Betrag du bereit wärst, 6 Monate auf die Zahlung zu warten. Um die Frage zu
+                            beantworten, klicke einfach in jener Zeile auf “B”, in der rechts der Betrag steht, ab dem
+                            du warten würdest. Die restlichen Zeilen werden dann automatisch ausgefüllt.
+
                         </p>
                     </td>
                 </tr>
@@ -87,50 +87,362 @@
                 <tr style="text-align: center;">
                     <th>  1 </th>
                     <td>€10 heute </td>
-                    <td style="padding-right: 14px"><input type="radio" name="time_preference_1" value="A" required></td>
-                    <td style="padding-right: 14px"><input type="radio" name="time_preference_1" value="B" required></td>
+                    <td style="padding-right: 14px"><input type="radio" name="time_preference_1" value="A" id="a1" onclick="a1_check()" required></td>
+                    <td style="padding-right: 14px"><input type="radio" name="time_preference_1" value="B" id="b1" onclick="b1_check()" required></td>
                     <td>€11 in 6 Monaten </td>
                 </tr>
                 <tr style="text-align: center;">
                     <th>  2 </th>
                     <td>€10 heute </td>
-                    <td style="padding-right: 14px"><input type="radio" name="time_preference_2" value="A" required> </td>
-                    <td style="padding-right: 14px"><input type="radio" name="time_preference_2" value="B" required> </td>
+                    <td style="padding-right: 14px"><input type="radio" name="time_preference_2" value="A" id="a2" onclick="a2_check()" required> </td>
+                    <td style="padding-right: 14px"><input type="radio" name="time_preference_2" value="B" id="b2" onclick="b2_check()" required> </td>
                     <td>€12 in 6 Monaten </td>
                 </tr>
                 <tr style="text-align: center;">
                     <th>  3 </th>
                     <td>€10 heute </td>
-                    <td style="padding-right: 14px"><input type="radio" name="time_preference_3" value="A" required> </td>
-                    <td style="padding-right: 14px"><input type="radio" name="time_preference_3" value="B" required> </td>
+                    <td style="padding-right: 14px"><input type="radio" name="time_preference_3" value="A" id="a3" onclick="a3_check()" required> </td>
+                    <td style="padding-right: 14px"><input type="radio" name="time_preference_3" value="B" id="b3" onclick="b3_check()"  required> </td>
                     <td>€13 in 6 Monaten </td>
                 </tr>
                 <tr style="text-align: center;">
                     <th>  4 </th>
                     <td>€10 heute </td>
-                    <td style="padding-right: 14px"><input type="radio" name="time_preference_4" value="A" required> </td>
-                    <td style="padding-right: 14px"><input type="radio" name="time_preference_4" value="B" required> </td>
+                    <td style="padding-right: 14px"><input type="radio" name="time_preference_4" value="A" id="a4" onclick="a4_check()" required> </td>
+                    <td style="padding-right: 14px"><input type="radio" name="time_preference_4" value="B" id="b4" onclick="b4_check()" required> </td>
                     <td>€14 in 6 Monaten </td>
                 </tr>
                 <tr style="text-align: center;">
                     <th>  5 </th>
                     <td>€10 heute </td>
-                    <td style="padding-right: 14px"><input type="radio" name="time_preference_5" value="A" required> </td>
-                    <td style="padding-right: 14px"><input type="radio" name="time_preference_5" value="B" required> </td>
+                    <td style="padding-right: 14px"><input type="radio" name="time_preference_5" value="A" id="a5" onclick="a5_check()" required> </td>
+                    <td style="padding-right: 14px"><input type="radio" name="time_preference_5" value="B" id="b5" onclick="b5_check()" required> </td>
                     <td>€15 in 6 Monaten </td>
                 </tr>
                 <tr style="text-align: center;">
                     <th>  6 </th>
                     <td>€10 heute </td>
-                    <td style="padding-right: 14px"><input type="radio" name="time_preference_6" value="A" required> </td>
-                    <td style="padding-right: 14px"><input type="radio" name="time_preference_6" value="B" required> </td>
+                    <td style="padding-right: 14px"><input type="radio" name="time_preference_6" value="A" id="a6" onclick="a6_check()" required> </td>
+                    <td style="padding-right: 14px"><input type="radio" name="time_preference_6" value="B" id="b6" onclick="b6_check()" required> </td>
                     <td>€16 in 6 Monaten </td>
                 </tr>
             </table>
+            <p>
+
+             </p>
+
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th>Schnell-Check (gemäß deiner Entscheidung):</th>
+                    </tr>
+
+                    <tr>
+                        <td>Ab einem Betrag von €
+                            <input type="text" style="width: 35px" id="check_tp" pattern ="" maxlength="2"
+                            oninvalid="counter_tp_fail()"> würde ich 6 Monate auf die Zahlung warten. Bei Beträgen darunter würde
+                            ich lieber heute €10 bekommen.
+                        </td>
+                    </tr>
+                <tr>
+                    <td>
+                        <div style="font-style: italic;font-size: x-small">Falls du oben bei jeder Zeile 'A' gewählt hast, lass dieses Feld leer und klicke auf 'Weiter'.</div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <input type="number" name="fail_counter_tp" id="fail_tp_passon" value="0" hidden>
         </div>
     </div>
 <div style="text-align: center">
   <button class="otree-btn-next btn btn-primary">Weiter</button>
 </div>
+
+<script>
+
+fail_tp = 0
+
+var a1 = document.getElementById("a1");
+var a2 = document.getElementById("a2");
+var a3 = document.getElementById("a3");
+var a4 = document.getElementById("a4");
+var a5 = document.getElementById("a5");
+var a6 = document.getElementById("a6");
+
+var b1 = document.getElementById("b1");
+var b2 = document.getElementById("b2");
+var b3 = document.getElementById("b3");
+var b4 = document.getElementById("b4");
+var b5 = document.getElementById("b5");
+var b6 = document.getElementById("b6");
+
+var tp = document.getElementById("check_tp");
+
+
+function a1_check() {
+    if (a1.checked) {
+        a2.disabled = false;
+
+        tp.value = "";
+        tp.maxlength ="2";
+        tp.pattern = "12";
+        tp.required = true;
+        tp.setCustomValidity("Weil du oben bereits in Zeile 2 'B' gewählt hast, würdest ab den dort angeführten Betrag 6 Monate auf die Zahlung warten")
+        tp.addEventListener("input", function (event) {
+            if (tp.value !== tp.pattern) {
+                tp.setCustomValidity("Weil du oben bereits in Zeile 2 'B' gewählt hast, würdest ab den dort angeführten Betrag 6 Monate auf die Zahlung warten");
+            } else {
+                tp.setCustomValidity("");
+            }
+        })
+    }
+}
+
+function a2_check() {
+    if (a2.checked) {
+        a3.disabled = false;
+
+        tp.value = "";
+        tp.maxlength ="2";
+        tp.pattern = "13";
+        tp.required = true;
+        tp.setCustomValidity("Weil du oben bereits in Zeile 3 'B' gewählt hast, würdest ab den dort angeführten Betrag 6 Monate auf die Zahlung warten")
+        tp.addEventListener("input", function (event) {
+            if (tp.value !== tp.pattern) {
+                tp.setCustomValidity("Weil du oben bereits in Zeile 3 'B' gewählt hast, würdest ab den dort angeführten Betrag 6 Monate auf die Zahlung warten");
+            } else {
+                tp.setCustomValidity("");
+            }
+        })
+    }
+}
+
+function a3_check() {
+    if (a3.checked) {
+        a4.disabled = false;
+
+        tp.value = "";
+        tp.maxlength ="2";
+        tp.pattern = "14";
+        tp.required = true;
+        tp.setCustomValidity("Weil du oben in Zeile 4 'B' gewählt hast, würdest ab den dort angeführten Betrag 6 Monate auf die Zahlung warten")
+        tp.addEventListener("input", function (event) {
+            if (tp.value !== tp.pattern) {
+                tp.setCustomValidity("Weil du oben in Zeile 4 'B' gewählt hast, würdest ab den dort angeführten Betrag 6 Monate auf die Zahlung warten");
+            } else {
+                tp.setCustomValidity("");
+            }
+        })
+    }
+}
+
+function a4_check() {
+    if (a4.checked) {
+        a5.disabled = false;
+
+        tp.value = "";
+        tp.maxlength ="2";
+        tp.pattern = "15";
+        tp.required = true;
+        tp.setCustomValidity("Weil du oben in Zeile 5 'B' gewählt hast, würdest ab den dort angeführten Betrag 6 Monate auf die Zahlung warten")
+        tp.addEventListener("input", function (event) {
+            if (tp.value !== tp.pattern) {
+                tp.setCustomValidity("Weil du oben in Zeile 5 'B' gewählt hast, würdest ab den dort angeführten Betrag 6 Monate auf die Zahlung warten");
+            } else {
+                tp.setCustomValidity("");
+            }
+        })
+    }
+}
+
+function a5_check() {
+    if (a5.checked) {
+        a6.disabled = false;
+
+        tp.value = "";
+        tp.maxlength ="2";
+        tp.pattern = "16";
+        tp.required = true;
+        tp.setCustomValidity("Weil du oben in Zeile 6 'B' gewählt hast, würdest ab den dort angeführten Betrag 6 Monate auf die Zahlung warten")
+        tp.addEventListener("input", function (event) {
+            if (tp.value !== tp.pattern) {
+                tp.setCustomValidity("Weil du oben in Zeile 6 'B' gewählt hast, würdest ab den dort angeführten Betrag 6 Monate auf die Zahlung warten");
+            } else {
+                tp.setCustomValidity("");
+            }
+        })
+    }
+}
+
+function a6_check() {
+    if (a6.checked) {
+        tp.maxlength ="";
+        tp.value = "";
+        tp.pattern = "";
+        tp.required = "";
+        tp.setCustomValidity("");
+        tp.addEventListener("input", function (event) {
+            if (tp.value !== tp.pattern) {
+                tp.setCustomValidity("Falls du oben bei jeder Zeile 'A' gewählt hast, lass dieses Feld leer und klicke auf 'Weiter'.");
+            } else {
+                tp.setCustomValidity("");
+            }
+        })
+    }
+}
+
+function b1_check() {
+    if (b1.checked) {
+        b2.checked = true;
+        b3.checked = true;
+        b4.checked = true;
+        b5.checked = true;
+        b6.checked = true;
+
+        a2.disabled = true;
+        a3.disabled = true;
+        a4.disabled = true;
+        a5.disabled = true;
+        a6.disabled = true;
+
+        tp.value = "";
+        tp.maxlength ="2";
+        tp.pattern = "11";
+        tp.required = true;
+        tp.setCustomValidity("Weil du oben bereits in Zeile 1 'B' gewählt hast, würdest ab den dort angeführten Betrag 6 Monate auf die Zahlung warten")
+        tp.addEventListener("input", function (event) {
+            if (tp.value !== tp.pattern) {
+                tp.setCustomValidity("Weil du oben bereits in Zeile 1 'B' gewählt hast, würdest ab den dort angeführten Betrag 6 Monate auf die Zahlung warten");
+            } else {
+                tp.setCustomValidity("");
+            }
+        })
+    }
+}
+
+function b2_check() {
+    if (b2.checked) {
+        b3.checked = true;
+        b4.checked = true;
+        b5.checked = true;
+        b6.checked = true;
+
+        a3.disabled = true;
+        a4.disabled = true;
+        a5.disabled = true;
+        a6.disabled = true;
+
+        tp.value = "";
+        tp.maxlength ="2";
+        tp.pattern = "12";
+        tp.required = true;
+        tp.setCustomValidity("Weil du oben bereits in Zeile 2 'B' gewählt hast, würdest ab den dort angeführten Betrag 6 Monate auf die Zahlung warten")
+        tp.addEventListener("input", function (event) {
+            if (tp.value !== tp.pattern) {
+                tp.setCustomValidity("Weil du oben bereits in Zeile 2 'B' gewählt hast, würdest ab den dort angeführten Betrag 6 Monate auf die Zahlung warten");
+            } else {
+                tp.setCustomValidity("");
+            }
+        })
+    }
+}
+
+function b3_check() {
+    if (b3.checked) {
+        b4.checked = true;
+        b5.checked = true;
+        b6.checked = true;
+
+        a4.disabled = true;
+        a5.disabled = true;
+        a6.disabled = true;
+
+        tp.value = "";
+        tp.maxlength ="2";
+        tp.pattern = "13";
+        tp.required = true;
+        tp.setCustomValidity("Weil du oben bereits in Zeile 3 'B' gewählt hast, würdest ab den dort angeführten Betrag 6 Monate auf die Zahlung warten")
+        tp.addEventListener("input", function (event) {
+            if (tp.value !== tp.pattern) {
+                tp.setCustomValidity("Weil du oben bereits in Zeile 3 'B' gewählt hast, würdest ab den dort angeführten Betrag 6 Monate auf die Zahlung warten");
+            } else {
+                tp.setCustomValidity("");
+            }
+        })
+    }
+}
+
+function b4_check() {
+    if (b4.checked) {
+        b5.checked = true;
+        b6.checked = true;
+
+        a5.disabled = true;
+        a6.disabled = true;
+
+        tp.value = "";
+        tp.maxlength ="2";
+        tp.pattern = "14";
+        tp.required = true;
+        tp.setCustomValidity("Weil du oben in Zeile 4 'B' gewählt hast, würdest ab den dort angeführten Betrag 6 Monate auf die Zahlung warten")
+        tp.addEventListener("input", function (event) {
+            if (tp.value !== tp.pattern) {
+                tp.setCustomValidity("Weil du oben in Zeile 4 'B' gewählt hast, würdest ab den dort angeführten Betrag 6 Monate auf die Zahlung warten");
+            } else {
+                tp.setCustomValidity("");
+            }
+        })
+    }
+}
+
+function b5_check() {
+    if (b5.checked) {
+        b6.checked = true;
+
+        a6.disabled = true;
+
+        tp.value = "";
+        tp.maxlength ="2";
+        tp.pattern = "15";
+        tp.required = true;
+        tp.setCustomValidity("Weil du oben in Zeile 5 'B' gewählt hast, würdest ab den dort angeführten Betrag 6 Monate auf die Zahlung warten")
+        tp.addEventListener("input", function (event) {
+            if (tp.value !== tp.pattern) {
+                tp.setCustomValidity("Weil du oben in Zeile 5 'B' gewählt hast, würdest ab den dort angeführten Betrag 6 Monate auf die Zahlung warten");
+            } else {
+                tp.setCustomValidity("");
+            }
+        })
+    }
+}
+
+function b6_check() {
+    if (b6.checked) {
+        tp.maxlength ="2";
+        tp.value = "";
+        tp.pattern = "16";
+        tp.required = true;
+        tp.setCustomValidity("Weil du oben in Zeile 6 'B' gewählt hast, würdest ab den dort angeführten Betrag 6 Monate auf die Zahlung warten")
+        tp.addEventListener("input", function (event) {
+            if (tp.value !== tp.pattern) {
+                tp.setCustomValidity("Weil du oben in Zeile 6 'B' gewählt hast, würdest ab den dort angeführten Betrag 6 Monate auf die Zahlung warten");
+            } else {
+                tp.setCustomValidity("");
+            }
+        })
+    }
+}
+
+function counter_tp_fail() {
+    correct_answer = tp.pattern
+    value = tp.value
+
+    if (correct_answer !== value){
+        fail_tp++
+    }
+    document.getElementById("fail_tp_passon").value = fail_tp;
+}
+
+</script>
 
 {% endblock %}

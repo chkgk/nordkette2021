@@ -7,6 +7,7 @@ import random
 
 class PlayerBot(Bot):
     def play_round(self):
+        yield (pages.SubIntro)
 
         yield (pages.Field_Behavior, {"gambling": random.randint(1,5),
                                      "general_risk": random.randint(0,10),
