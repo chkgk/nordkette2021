@@ -10,3 +10,4 @@ class PlayerBot(Bot):
         # submit Intro page
         # ------------------------------------------------------------------------------------------------------------ #
         yield (pages.Intro)
+        yield (pages.SubIntro)

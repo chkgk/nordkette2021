@@ -7,7 +7,7 @@ import random
 
 class PlayerBot(Bot):
     def play_round(self):
-        if self.participant.vars["task_sequence"][:3] == """["D""":
+        if self.participant.vars["task_sequence"][:3] == """["D""": # Sequence starting with Decoy
             # ------------------------------------------------------------------------------------------------------------ #
             # make decisions
             # ------------------------------------------------------------------------------------------------------------ #
@@ -19,7 +19,7 @@ class PlayerBot(Bot):
             yield (pages.Page_2, {'framing_t2': random.choice(['A','B'])}) # Framing
             yield (pages.Page_3, {'mental_accounting_t2': random.randint(0,1)}) # MA
 
-        elif self.participant.vars["task_sequence"][:3] == """["M""":
+        elif self.participant.vars["task_sequence"][:3] == """["M""": # Sequence starting with Mental Accounting
             # ------------------------------------------------------------------------------------------------------------ #
             # make decisions
             # ------------------------------------------------------------------------------------------------------------ #
@@ -31,7 +31,7 @@ class PlayerBot(Bot):
                                                  'anchoring_t2_wtp': random.randint(76, 100)}))) # Anchoring
             yield (pages.Page_3, {'decoy_t2': random.choice(['C', 'D', 'T'])})  # Decoy
 
-        elif self.participant.vars["task_sequence"][:3] == """["F""":
+        elif self.participant.vars["task_sequence"][:3] == """["F""": # Sequence starting with Framing
             # ------------------------------------------------------------------------------------------------------------ #
             # make decisions
             # ------------------------------------------------------------------------------------------------------------ #

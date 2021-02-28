@@ -6,4 +6,13 @@ from .models import Constants
 class Intro(Page):
     pass
 
-page_sequence = [Intro]
+# ******************************************************************************************************************** #
+# *** PAGE SUB INTRO BIASES T1*** #
+# ******************************************************************************************************************** #
+class SubIntro(Page):
+    # time out
+    # ----------------------------------------------------------------------------------------------------------------
+    timeout_seconds = 30
+    timer_text = "Verbleibende Zeit bis du automatisch weitergeleitet wirst:"
+
+page_sequence = [Intro, SubIntro]

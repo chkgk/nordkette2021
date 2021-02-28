@@ -4,6 +4,15 @@ from .models import Constants
 from . import models
 
 # ******************************************************************************************************************** #
+# *** PAGE SUB INTRO *** #
+# ******************************************************************************************************************** #
+class SubIntro(Page):
+    # time out
+    # ----------------------------------------------------------------------------------------------------------------
+    timeout_seconds = 30
+    timer_text = "Verbleibende Zeit bis du automatisch weitergeleitet wirst:"
+
+# ******************************************************************************************************************** #
 # *** PAGE RISK PREFERENCE *** #
 # ******************************************************************************************************************** #
 class RiskPreference(Page):
@@ -61,4 +70,6 @@ class TimePreference(Page):
         }
 
 
-page_sequence = [RiskPreference, TimePreference]
+
+
+page_sequence = [SubIntro, RiskPreference, TimePreference]

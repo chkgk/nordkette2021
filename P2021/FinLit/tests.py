@@ -10,6 +10,7 @@ class PlayerBot(Bot):
         # ------------------------------------------------------------------------------------------------------------ #
         # make decisions
         # ------------------------------------------------------------------------------------------------------------ #
+            yield (pages.SubIntro)
             yield (pages.FinLit, {'interest_compounding': random.choice([1,2,3,-1]),
                                   'real_interest': random.choice([2,3,1,-1]),
                                   'diversification': random.choice([2,1,-1]),

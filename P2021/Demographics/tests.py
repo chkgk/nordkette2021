@@ -11,7 +11,7 @@ class PlayerBot(Bot):
         def gen_dictionaries(school_type,min_age,max_age, school_level_min, school_level_max):
             return {"age": random.randint(min_age, max_age),
                     "gender": random.choice(["female", "male", "diverse"]),
-                    "religion": random.choice(["rom.-cath.", "orthodox", "islamic", "protestant", "other"]),
+                    "religion": random.choice(["rom.-cath.", "orthodox", "islamic", "protestant", "other","without"]),
                     "school_type": str(school_type),
                     "school_level": str(random.randint(school_level_min, school_level_max)),
                     "math_skill": random.choice(["1", "2", "3", "4", "5"]),

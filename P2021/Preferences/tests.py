@@ -13,6 +13,8 @@ class PlayerBot(Bot):
                 tp_dict[("time_preference_{i}".format(i=k))] = v
             return tp_dict
 
+        yield(pages.SubIntro)
+
         yield (pages.RiskPreference, {"risk_preference": random.randint(0,6),
                                       "fail_counter_heads": random.randint(0,2),
                                       "fail_counter_tails": random.randint(0,2)})
@@ -25,4 +27,5 @@ class PlayerBot(Bot):
             gen_dict_tp(list(range(1, 7)), ["A", "A", "A", "A", "A", "B"]),
             gen_dict_tp(list(range(1, 7)), ["A", "A", "A", "A", "A", "A"]),
         ]))
+
 

@@ -77,10 +77,10 @@
                     <td>
                         <div style="margin-top: 20px">Wieviel würdest du für die Kopfhörer bezahlen?</div>
                         <div class="input-group mb-3" style="width: 30em; margin-top: 10px">
-                             <input type="number" class="form-control" step="any" min="0" max="1000" id="wtp"
-                                name="anchoring_t2_wtp" required>
                             <div class="input-group-append">
                             <span class="input-group-text" id="inputGroup-sizing-default ">€</span>
+                            <input type="number" class="form-control" step="any" min="0" max="1000" id="wtp"
+                                name="anchoring_t2_wtp" required>
                             </div>
                         </div>
                     </td>
@@ -101,7 +101,9 @@
     function set_min() {
         var input = document.getElementById('wtp');
         if (yes.checked) {
+            input.value = ""
             input.setAttribute("min", 76);
+            input.setAttribute("max","");
             input.setCustomValidity("Die eingegebene Nummer muss mindestens 76 betragen, da oben 'Ja' angegeben wurde.")
             wtp.addEventListener("input", function (event) {
                 if (wtp.value < 76) {
@@ -116,10 +118,16 @@
     function dis_min() {
         var input = document.getElementById('wtp');
         if (no.checked) {
+            input.value = ""
             input.setAttribute("min", 0);
+            input.setAttribute("max", 75)
             input.setCustomValidity("")
             wtp.addEventListener("input", function (event) {
+                if (wtp.value > 75) {
+                    wtp.setCustomValidity("Die eingegebene Nummer darf maximal 75 betragen, da oben 'Nein' angegeben wurde.");
+                } else {
                     wtp.setCustomValidity("");
+                }
             })
         }
     }

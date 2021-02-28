@@ -11,7 +11,7 @@ class PlayerBot(Bot):
             # ------------------------------------------------------------------------------------------------------------ #
             # make decisions
             # ------------------------------------------------------------------------------------------------------------ #
-            yield (pages.Page_0, {'decoy_t1': random.choice(['C', 'D', 'T'])}) #Decoy
+            yield (pages.Page_0, {'decoy_t1': random.choice(['C', 'T'])}) #Decoy
             yield (pages.Page_1, {'anchoring_t1_wtp': random.randint(0,100)}) #Anchoring
             yield (pages.Page_2, {'framing_t1': random.choice(['A','B'])}) #Framing
             yield (pages.Page_3, {'mental_accounting_t1': random.randint(0,1)}) # MA
