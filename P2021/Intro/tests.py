@@ -9,5 +9,6 @@ class PlayerBot(Bot):
         # ------------------------------------------------------------------------------------------------------------ #
         # submit Intro page
         # ------------------------------------------------------------------------------------------------------------ #
-        yield (pages.Intro)
+        yield (pages.Intro, {"class_identifier": "TestKlasse",
+                             "school_identifier": "BotSchule"})
         yield (pages.SubIntro)

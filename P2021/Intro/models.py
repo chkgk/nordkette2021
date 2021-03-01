@@ -45,4 +45,5 @@ class Group(BaseGroup):
 # *** CLASS PLAYER *** #
 # ******************************************************************************************************************** #
 class Player(BasePlayer):
-    pass
+    class_identifier = models.StringField()
+    school_identifier = models.StringField()

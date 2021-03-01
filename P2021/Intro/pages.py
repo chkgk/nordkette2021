@@ -1,13 +1,18 @@
 from otree.api import Currency as c, currency_range
 from ._builtin import Page, WaitPage
 from .models import Constants
-
-
-class Intro(Page):
-    pass
+from . import models
 
 # ******************************************************************************************************************** #
-# *** PAGE SUB INTRO BIASES T1*** #
+# *** PAGE SUB INTRO *** #
+# ******************************************************************************************************************** #
+class Intro(Page):
+    form_model = models.Player
+    form_fields = ['class_identifier','school_identifier']
+
+
+# ******************************************************************************************************************** #
+# *** PAGE SUB INTRO BIASES T1 *** #
 # ******************************************************************************************************************** #
 class SubIntro(Page):
     # time out

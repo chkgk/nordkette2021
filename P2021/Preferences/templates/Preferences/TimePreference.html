@@ -69,9 +69,9 @@
                             Bitte überlege dir für jede der 6 Zeilen, welche Zahlung (A: 10€ heute oder B: den höheren
                             Betrag in 6 Monaten) du bevorzugen würdest. Du kannst dir die Frage auch so vorstellen, ab
                             welchem Betrag du bereit wärst, 6 Monate auf die Zahlung zu warten. Um die Frage zu
-                            beantworten, klicke einfach in jener Zeile auf “B”, in der rechts der Betrag steht, ab dem
-                            du warten würdest. Die restlichen Zeilen werden dann automatisch ausgefüllt.
-
+                            beantworten, klicke einfach in jener Zeile auf „B”, in der rechts der Betrag steht, ab dem
+                            du warten würdest. Falls du immer die €10 heute bevorzugen würdest, klicke in der letzten
+                            Zeile auf „A“. Die restlichen Zeilen werden dann automatisch ausgefüllt.
                         </p>
                     </td>
                 </tr>
@@ -146,7 +146,7 @@
                     </tr>
                 <tr>
                     <td>
-                        <div style="font-style: italic;font-size: x-small">Falls du oben bei jeder Zeile 'A' gewählt hast, lass dieses Feld leer und klicke auf 'Weiter'.</div>
+                        <div style="font-style: italic;font-size: x-small">Falls du oben bei jeder Zeile „A" gewählt hast, lass dieses Feld leer und klicke auf 'Weiter'.</div>
                     </td>
                 </tr>
                 </tbody>
@@ -187,10 +187,10 @@ function a1_check() {
         tp.maxlength ="2";
         tp.pattern = "12";
         tp.required = true;
-        tp.setCustomValidity("Weil du oben bereits in Zeile 2 'B' gewählt hast, würdest ab den dort angeführten Betrag 6 Monate auf die Zahlung warten")
+        tp.setCustomValidity("Weil du oben bereits in Zeile 2 'B' gewählt hast, würdest du ab dem dort angeführten Betrag 6 Monate auf die Zahlung warten.")
         tp.addEventListener("input", function (event) {
             if (tp.value !== tp.pattern) {
-                tp.setCustomValidity("Weil du oben bereits in Zeile 2 'B' gewählt hast, würdest ab den dort angeführten Betrag 6 Monate auf die Zahlung warten");
+                tp.setCustomValidity("Weil du oben bereits in Zeile 2 'B' gewählt hast, würdest du ab dem dort angeführten Betrag 6 Monate auf die Zahlung warten.");
             } else {
                 tp.setCustomValidity("");
             }
@@ -206,10 +206,10 @@ function a2_check() {
         tp.maxlength ="2";
         tp.pattern = "13";
         tp.required = true;
-        tp.setCustomValidity("Weil du oben bereits in Zeile 3 'B' gewählt hast, würdest ab den dort angeführten Betrag 6 Monate auf die Zahlung warten")
+        tp.setCustomValidity("Weil du oben bereits in Zeile 3 'B' gewählt hast, würdest du ab dem dort angeführten Betrag 6 Monate auf die Zahlung warten.")
         tp.addEventListener("input", function (event) {
             if (tp.value !== tp.pattern) {
-                tp.setCustomValidity("Weil du oben bereits in Zeile 3 'B' gewählt hast, würdest ab den dort angeführten Betrag 6 Monate auf die Zahlung warten");
+                tp.setCustomValidity("Weil du oben bereits in Zeile 3 'B' gewählt hast, würdest du ab dem dort angeführten Betrag 6 Monate auf die Zahlung warten.");
             } else {
                 tp.setCustomValidity("");
             }
@@ -225,10 +225,10 @@ function a3_check() {
         tp.maxlength ="2";
         tp.pattern = "14";
         tp.required = true;
-        tp.setCustomValidity("Weil du oben in Zeile 4 'B' gewählt hast, würdest ab den dort angeführten Betrag 6 Monate auf die Zahlung warten")
+        tp.setCustomValidity("Weil du oben in Zeile 4 'B' gewählt hast, würdest du ab dem dort angeführten Betrag 6 Monate auf die Zahlung warten.")
         tp.addEventListener("input", function (event) {
             if (tp.value !== tp.pattern) {
-                tp.setCustomValidity("Weil du oben in Zeile 4 'B' gewählt hast, würdest ab den dort angeführten Betrag 6 Monate auf die Zahlung warten");
+                tp.setCustomValidity("Weil du oben in Zeile 4 'B' gewählt hast, würdest du ab dem dort angeführten Betrag 6 Monate auf die Zahlung warten.");
             } else {
                 tp.setCustomValidity("");
             }
@@ -244,10 +244,10 @@ function a4_check() {
         tp.maxlength ="2";
         tp.pattern = "15";
         tp.required = true;
-        tp.setCustomValidity("Weil du oben in Zeile 5 'B' gewählt hast, würdest ab den dort angeführten Betrag 6 Monate auf die Zahlung warten")
+        tp.setCustomValidity("Weil du oben in Zeile 5 'B' gewählt hast, würdest du ab dem dort angeführten Betrag 6 Monate auf die Zahlung warten.")
         tp.addEventListener("input", function (event) {
             if (tp.value !== tp.pattern) {
-                tp.setCustomValidity("Weil du oben in Zeile 5 'B' gewählt hast, würdest ab den dort angeführten Betrag 6 Monate auf die Zahlung warten");
+                tp.setCustomValidity("Weil du oben in Zeile 5 'B' gewählt hast, würdest du ab dem dort angeführten Betrag 6 Monate auf die Zahlung warten.");
             } else {
                 tp.setCustomValidity("");
             }
@@ -263,10 +263,10 @@ function a5_check() {
         tp.maxlength ="2";
         tp.pattern = "16";
         tp.required = true;
-        tp.setCustomValidity("Weil du oben in Zeile 6 'B' gewählt hast, würdest ab den dort angeführten Betrag 6 Monate auf die Zahlung warten")
+        tp.setCustomValidity("Weil du oben in Zeile 6 'B' gewählt hast, würdest du ab dem dort angeführten Betrag 6 Monate auf die Zahlung warten.")
         tp.addEventListener("input", function (event) {
             if (tp.value !== tp.pattern) {
-                tp.setCustomValidity("Weil du oben in Zeile 6 'B' gewählt hast, würdest ab den dort angeführten Betrag 6 Monate auf die Zahlung warten");
+                tp.setCustomValidity("Weil du oben in Zeile 6 'B' gewählt hast, würdest du ab dem dort angeführten Betrag 6 Monate auf die Zahlung warten.");
             } else {
                 tp.setCustomValidity("");
             }
@@ -276,6 +276,13 @@ function a5_check() {
 
 function a6_check() {
     if (a6.checked) {
+
+        a1.checked = true;
+        a2.checked = true;
+        a3.checked = true;
+        a4.checked = true;
+        a5.checked = true;
+
         tp.maxlength ="";
         tp.value = "";
         tp.pattern = "";
@@ -309,10 +316,10 @@ function b1_check() {
         tp.maxlength ="2";
         tp.pattern = "11";
         tp.required = true;
-        tp.setCustomValidity("Weil du oben bereits in Zeile 1 'B' gewählt hast, würdest ab den dort angeführten Betrag 6 Monate auf die Zahlung warten")
+        tp.setCustomValidity("Weil du oben bereits in Zeile 1 'B' gewählt hast, würdest du ab dem dort angeführten Betrag 6 Monate auf die Zahlung warten.")
         tp.addEventListener("input", function (event) {
             if (tp.value !== tp.pattern) {
-                tp.setCustomValidity("Weil du oben bereits in Zeile 1 'B' gewählt hast, würdest ab den dort angeführten Betrag 6 Monate auf die Zahlung warten");
+                tp.setCustomValidity("Weil du oben bereits in Zeile 1 'B' gewählt hast, würdest du ab dem dort angeführten Betrag 6 Monate auf die Zahlung warten.");
             } else {
                 tp.setCustomValidity("");
             }
@@ -327,6 +334,9 @@ function b2_check() {
         b5.checked = true;
         b6.checked = true;
 
+        a1.checked = true;
+        a1.disabled = false;
+
         a3.disabled = true;
         a4.disabled = true;
         a5.disabled = true;
@@ -336,10 +346,10 @@ function b2_check() {
         tp.maxlength ="2";
         tp.pattern = "12";
         tp.required = true;
-        tp.setCustomValidity("Weil du oben bereits in Zeile 2 'B' gewählt hast, würdest ab den dort angeführten Betrag 6 Monate auf die Zahlung warten")
+        tp.setCustomValidity("Weil du oben bereits in Zeile 2 'B' gewählt hast, würdest du ab dem dort angeführten Betrag 6 Monate auf die Zahlung warten.")
         tp.addEventListener("input", function (event) {
             if (tp.value !== tp.pattern) {
-                tp.setCustomValidity("Weil du oben bereits in Zeile 2 'B' gewählt hast, würdest ab den dort angeführten Betrag 6 Monate auf die Zahlung warten");
+                tp.setCustomValidity("Weil du oben bereits in Zeile 2 'B' gewählt hast, würdest du ab dem dort angeführten Betrag 6 Monate auf die Zahlung warten.");
             } else {
                 tp.setCustomValidity("");
             }
@@ -353,6 +363,11 @@ function b3_check() {
         b5.checked = true;
         b6.checked = true;
 
+        a1.checked = true;
+        a1.disabled = false;
+        a2.checked = true;
+        a2.disabled = false;
+
         a4.disabled = true;
         a5.disabled = true;
         a6.disabled = true;
@@ -361,10 +376,10 @@ function b3_check() {
         tp.maxlength ="2";
         tp.pattern = "13";
         tp.required = true;
-        tp.setCustomValidity("Weil du oben bereits in Zeile 3 'B' gewählt hast, würdest ab den dort angeführten Betrag 6 Monate auf die Zahlung warten")
+        tp.setCustomValidity("Weil du oben bereits in Zeile 3 'B' gewählt hast, würdest du ab dem dort angeführten Betrag 6 Monate auf die Zahlung warten.")
         tp.addEventListener("input", function (event) {
             if (tp.value !== tp.pattern) {
-                tp.setCustomValidity("Weil du oben bereits in Zeile 3 'B' gewählt hast, würdest ab den dort angeführten Betrag 6 Monate auf die Zahlung warten");
+                tp.setCustomValidity("Weil du oben bereits in Zeile 3 'B' gewählt hast, würdest du ab dem dort angeführten Betrag 6 Monate auf die Zahlung warten.");
             } else {
                 tp.setCustomValidity("");
             }
@@ -377,6 +392,13 @@ function b4_check() {
         b5.checked = true;
         b6.checked = true;
 
+        a1.checked = true;
+        a1.disabled = false;
+        a2.checked = true;
+        a2.disabled = false;
+        a3.checked = true;
+        a3.disabled = false;
+
         a5.disabled = true;
         a6.disabled = true;
 
@@ -384,10 +406,10 @@ function b4_check() {
         tp.maxlength ="2";
         tp.pattern = "14";
         tp.required = true;
-        tp.setCustomValidity("Weil du oben in Zeile 4 'B' gewählt hast, würdest ab den dort angeführten Betrag 6 Monate auf die Zahlung warten")
+        tp.setCustomValidity("Weil du oben in Zeile 4 'B' gewählt hast, würdest du ab dem dort angeführten Betrag 6 Monate auf die Zahlung warten.")
         tp.addEventListener("input", function (event) {
             if (tp.value !== tp.pattern) {
-                tp.setCustomValidity("Weil du oben in Zeile 4 'B' gewählt hast, würdest ab den dort angeführten Betrag 6 Monate auf die Zahlung warten");
+                tp.setCustomValidity("Weil du oben in Zeile 4 'B' gewählt hast, würdest du ab dem dort angeführten Betrag 6 Monate auf die Zahlung warten.");
             } else {
                 tp.setCustomValidity("");
             }
@@ -399,16 +421,25 @@ function b5_check() {
     if (b5.checked) {
         b6.checked = true;
 
+        a1.checked = true;
+        a1.disabled = false;
+        a2.checked = true;
+        a2.disabled = false;
+        a3.checked = true;
+        a3.disabled = false;
+        a4.checked = true;
+        a4.disabled = false;
+
         a6.disabled = true;
 
         tp.value = "";
         tp.maxlength ="2";
         tp.pattern = "15";
         tp.required = true;
-        tp.setCustomValidity("Weil du oben in Zeile 5 'B' gewählt hast, würdest ab den dort angeführten Betrag 6 Monate auf die Zahlung warten")
+        tp.setCustomValidity("Weil du oben in Zeile 5 'B' gewählt hast, würdest du ab dem dort angeführten Betrag 6 Monate auf die Zahlung warten.")
         tp.addEventListener("input", function (event) {
             if (tp.value !== tp.pattern) {
-                tp.setCustomValidity("Weil du oben in Zeile 5 'B' gewählt hast, würdest ab den dort angeführten Betrag 6 Monate auf die Zahlung warten");
+                tp.setCustomValidity("Weil du oben in Zeile 5 'B' gewählt hast, würdest du ab dem dort angeführten Betrag 6 Monate auf die Zahlung warten.");
             } else {
                 tp.setCustomValidity("");
             }
@@ -418,14 +449,26 @@ function b5_check() {
 
 function b6_check() {
     if (b6.checked) {
+
+        a1.checked = true;
+        a1.disabled = false;
+        a2.checked = true;
+        a2.disabled = false;
+        a3.checked = true;
+        a3.disabled = false;
+        a4.checked = true;
+        a4.disabled = false;
+        a5.checked = true;
+        a5.disabled = false;
+
         tp.maxlength ="2";
         tp.value = "";
         tp.pattern = "16";
         tp.required = true;
-        tp.setCustomValidity("Weil du oben in Zeile 6 'B' gewählt hast, würdest ab den dort angeführten Betrag 6 Monate auf die Zahlung warten")
+        tp.setCustomValidity("Weil du oben in Zeile 6 'B' gewählt hast, würdest du ab dem dort angeführten Betrag 6 Monate auf die Zahlung warten.")
         tp.addEventListener("input", function (event) {
             if (tp.value !== tp.pattern) {
-                tp.setCustomValidity("Weil du oben in Zeile 6 'B' gewählt hast, würdest ab den dort angeführten Betrag 6 Monate auf die Zahlung warten");
+                tp.setCustomValidity("Weil du oben in Zeile 6 'B' gewählt hast, würdest du ab dem dort angeführten Betrag 6 Monate auf die Zahlung warten.");
             } else {
                 tp.setCustomValidity("");
             }
