@@ -9,6 +9,9 @@ import json
 # *** PAGE DECOY *** #
 # ******************************************************************************************************************** #
 class Decoy(Page):
+    def is_displayed(self):
+        return self.round_number == self.participant.vars['page_sequence']['Decoy']
+
     def before_next_page(self):
         self.participant.vars["page_count"] += 1
 
@@ -44,6 +47,9 @@ class Decoy(Page):
 # *** PAGE ANCHORING *** #
 # ******************************************************************************************************************** #
 class Anchoring(Page):
+    def is_displayed(self):
+        return self.round_number == self.participant.vars['page_sequence']['Anchoring']
+    
     def before_next_page(self):
         self.participant.vars["page_count"] += 1
 
@@ -79,6 +85,9 @@ class Anchoring(Page):
 # *** PAGE FRAMING *** #
 # ******************************************************************************************************************** #
 class Framing(Page):
+    def is_displayed(self):
+        return self.round_number == self.participant.vars['page_sequence']['Framing']
+    
     def before_next_page(self):
         self.participant.vars["page_count"] += 1
 
@@ -112,6 +121,9 @@ class Framing(Page):
 # *** PAGE MENTAL ACCOUNTING *** #
 # ******************************************************************************************************************** #
 class MentalAccounting(Page):
+    def is_displayed(self):
+        return self.round_number == self.participant.vars['page_sequence']['MentalAccounting']
+    
     def before_next_page(self):
         self.participant.vars["page_count"] += 1
 
@@ -144,6 +156,9 @@ class MentalAccounting(Page):
 # *** PAGE CONJUNCTION FALLACY *** #
 # ******************************************************************************************************************** #
 class ConjunctionFallacy(Page):
+    def is_displayed(self):
+        return self.round_number == 5  # always shown last
+
     def before_next_page(self):
         self.participant.vars["page_count"] = 1
 
@@ -173,32 +188,10 @@ class ConjunctionFallacy(Page):
         }
 
 
-initial_page_sequence = [
+page_sequence = [
     Decoy,
     Anchoring,
     Framing,
     MentalAccounting,
     ConjunctionFallacy
 ]
-
-#compute page sequence
-page_sequence = [
-
-]
-
-
-class MyPage(Page):
-    def inner_dispatch(self):
-        page_seq = int(self.__class__.__name__.split('_')[1])
-        page_to_show = json.loads(self.player.page_sequence_t1)[page_seq]
-        self._is_frozen = False
-        self.__class__ = globals()[page_to_show]
-        return super(globals()[page_to_show], self).inner_dispatch()
-
-
-for i, _ in enumerate(initial_page_sequence):
-    NewClassName = "Page_{}".format(i)
-    A = type(NewClassName, (MyPage,), {})
-    locals()[NewClassName] = A
-    page_sequence.append(locals()[NewClassName])
-
