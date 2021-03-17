@@ -14,6 +14,8 @@ class Decoy(Page):
 
     def before_next_page(self):
         self.participant.vars["page_count"] += 1
+        if self.round_number != 1:
+            self.player.in_round(1).decoy_t1 = self.player.decoy_t1
 
     # form model and form fields
     # ----------------------------------------------------------------------------------------------------------------
@@ -49,9 +51,11 @@ class Decoy(Page):
 class Anchoring(Page):
     def is_displayed(self):
         return self.round_number == self.participant.vars['page_sequence']['Anchoring']
-    
+
     def before_next_page(self):
         self.participant.vars["page_count"] += 1
+        if self.round_number != 1:
+            self.player.in_round(1).anchoring_t1_wtp = self.player.anchoring_t1_wtp
 
     # form model and form fields
     # ----------------------------------------------------------------------------------------------------------------
@@ -87,9 +91,11 @@ class Anchoring(Page):
 class Framing(Page):
     def is_displayed(self):
         return self.round_number == self.participant.vars['page_sequence']['Framing']
-    
+
     def before_next_page(self):
         self.participant.vars["page_count"] += 1
+        if self.round_number != 1:
+            self.player.in_round(1).framing_t1 = self.player.framing_t1
 
     # form model and form fields
     # ----------------------------------------------------------------------------------------------------------------
@@ -126,6 +132,8 @@ class MentalAccounting(Page):
     
     def before_next_page(self):
         self.participant.vars["page_count"] += 1
+        if self.round_number != 1:
+            self.player.in_round(1).mental_accounting_t1 = self.player.mental_accounting_t1
 
     # form model and form fields
     # ----------------------------------------------------------------------------------------------------------------
@@ -161,6 +169,8 @@ class ConjunctionFallacy(Page):
 
     def before_next_page(self):
         self.participant.vars["page_count"] = 1
+        if self.round_number != 1:
+            self.player.in_round(1).conjunction_fallacy = self.player.conjunction_fallacy
 
     # form model and form fields
     # ----------------------------------------------------------------------------------------------------------------
